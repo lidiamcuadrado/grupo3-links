@@ -1,13 +1,23 @@
-const mysql = require("mysql2/promise");
+import mysql from 'mysql2/promise'
 
-const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env;
+import { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } from '../config.js'
 
 let pool;
 
 const getConnection = async () => {
   try {
     if (!pool) {
-      pool = mysql.createPool({
+      // Creamos una conexión con el servidor MySQL.
+      const connection = await mysql.createConnection({
+          host: MYSQL_HOST,
+          user: MYSQL_USER,
+          password: MYSQL_PASSWORD,
+          timezone: 'Z',
+      });
+
+      await connection.query(`CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE}`);
+
+      pool = await mysql.createPool({
         connectionLimit: 10,
         host: MYSQL_HOST,
         user: MYSQL_USER,
@@ -23,6 +33,4 @@ const getConnection = async () => {
   }
 };
 
-module.exports = {
-  getConnection,
-};
+export default getConnection

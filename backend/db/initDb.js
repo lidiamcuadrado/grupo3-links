@@ -1,58 +1,75 @@
-require("dotenv").config();
-const { getConnection } = require("./db.js");
+import 'dotenv/config.js'
+import getConnection from "./db.js";
 
-async function main() {
+const init = async () => {
   let connection;
+
   try {
-    connection = await getConnection();
-    console.log(getConnection);
+    let connection = await getConnection();
 
-    //Borrar tablas
-    console.log("Borrando tablas si existen...");
-    connection.query(`DROP TABLE IF EXISTS categories, users, notes`);
+    console.log('-> DELETING TABLES... <-');
 
-    console.log("Creando tablas...");
-    await connection.query(`
-    CREATE TABLE users(
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      email VARCHAR(100) UNIQUE NOT NULL,
-      password VARCHAR(255) NOT NULL
-    );
+    await connection.query('DROP TABLE IF EXISTS downVotes');
+    await connection.query('DROP TABLE IF EXISTS upVotes');
+    await connection.query('DROP TABLE IF EXISTS notes');
+    await connection.query('DROP TABLE IF EXISTS users');
+
+    console.log('-> CREATING TABLES...<-');
+
+    await connection.query(` 
+        CREATE TABLE IF NOT EXISTS users (
+            id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            email VARCHAR(100) UNIQUE NOT NULL,
+            username VARCHAR(30) UNIQUE NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            avatar VARCHAR(100),
+            role ENUM('admin', 'normal') DEFAULT 'normal',
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+            modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
+        )
     `);
 
     await connection.query(`
-    CREATE TABLE categories(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    name VARCHAR(50),
-    FOREIGN KEY (user_id) REFERENCES users(id)
-    );
-    `);
-
-    await connection.query(`
-    CREATE TABLE notes(
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            user_id INT,
-            title VARCHAR(100),
-            text VARCHAR(255),
-            category INT,
-            public BOOLEAN DEFAULT 0,
+        CREATE TABLE IF NOT EXISTS notes (
+            id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            userId INT UNSIGNED NOT NULL,
+            text VARCHAR(280) NOT NULL,
             image VARCHAR(100),
-            FOREIGN KEY( user_id) REFERENCES users(id) ON DELETE CASCADE,
-            FOREIGN KEY (category) REFERENCES categories(id) ON DELETE SET NULL
-
-    );
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(userId) REFERENCES users(id)
+        )
     `);
 
-    console.log("Tablas creadas");
-  } catch (e) {
-    console.log(e.message);
+    await connection.query(`
+        CREATE TABLE IF NOT EXISTS upVotes (
+            id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            userId INT UNSIGNED NOT NULL,
+            notesId INT UNSIGNED NOT NULL, 
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(userId) REFERENCES users(id),
+            FOREIGN KEY(notesId) REFERENCES notes(id)
+        )
+    `);
+    await connection.query(`
+        CREATE TABLE IF NOT EXISTS downVotes (
+            id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+            userId INT UNSIGNED NOT NULL,
+            notesId INT UNSIGNED NOT NULL, 
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(userId) REFERENCES users(id),
+            FOREIGN KEY(notesId) REFERENCES notes(id)
+        )
+    `);
+
+    console.log('¡TABLES SUCCESSFULLY CREATED!');
+
+
+  } catch (error) {
+    console.error(error);
   } finally {
-    if (connection) {
-      connection.release();
-    }
+    if (connection) connection.release();
     process.exit();
   }
-}
+};
 
-main();
+init();

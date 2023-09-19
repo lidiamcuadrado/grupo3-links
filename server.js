@@ -9,6 +9,13 @@ const cors = require('cors');
 // importamos las rutas
 const routes = require('./backend/routes');
 
+// Importamos las funciones controladoras de errores.
+const { 
+        errorController,
+        notFounderController,
+        notFoundController,
+} = require('./backend/controllers/errors');
+
 // creamos el servidor
 const app = express();
 
@@ -25,27 +32,11 @@ app.use(cors());
 app.use(routes);
 
 // middleware ruta no encontrada
-app.use((req, res) => {
-  res.status(404).send ({
-    status: 'error',
-    message: '404 not found'
-  });
-});
+app.use(notFoundController);
 
 // middleware error
 // eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-    console.error(err);
-
-    res.status(err.httpStatus || 500).send({
-      status: 'error',
-      message: err.message
-    })
-})
-
-
-
-
+app.use(errorController);
 
 // ponemos a funcionar el servidor en el puerto dado
 app.listen(process.env.PORT, () => {

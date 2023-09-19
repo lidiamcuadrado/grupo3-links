@@ -1,4 +1,5 @@
 // Función controladora para el middleware de error
+// eslint-disable-next-line no-unused-vars
 const errorController = (err, req, res, next) => {
     console.error(err);
 

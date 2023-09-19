@@ -25,7 +25,7 @@ const selectUserByEmail = async (email) => {
     // Dado que no puede existir más de un usuario con un email determinado, en caso de que el array de usuarios haya algún usuario este estará en la posición 0.
     return users[0];
 } finally {
-    if (connection) connection.releaase();
+    if (connection) connection.release();
     }
 };
 

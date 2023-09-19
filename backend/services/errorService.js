@@ -1,4 +1,5 @@
 module.exports = {
+    // este error es por si falla el borrado del avatar de un usuario al ser cambiado
     deleteFileError() {
         throw {
             httpStatus: 500, // Internal server error
@@ -13,6 +14,7 @@ module.exports = {
             message: 'El email ya está registrado',
         };
     },
+    // este es por si nos equivocamos al meter la contrasña al hacer login
     invalidCredentialsError() {
         throw {
             httpStatus: 401, // Unauthorized
@@ -33,6 +35,13 @@ module.exports = {
             code: 'LIKE_ALREADY_EXISTS',
             message: 'No se puede dar like más de una vez al mismo elemento',
         };
+    },
+    missingFieldError() {
+        throw {
+            httStatus: 400,
+            code: 'MISSING_FIELDS',
+            message: 'Empty fields'
+        }
     },
     notAuthenticatedError() {
         throw {

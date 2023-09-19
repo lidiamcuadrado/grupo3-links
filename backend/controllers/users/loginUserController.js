@@ -1,9 +1,10 @@
 //Importamos las dependencias.
-const jwt = require ('jsonwebtoken';)
+const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const selectUserByEmail = require("./selectUserByEmail");
 const { invalidCredentialsError } = require('../../services/errorService');
+const { missingFieldsError } = require('../../services/errorService')
 
 
 const loginUserController = async (req, res, next) => {
@@ -43,7 +44,7 @@ const loginUserController = async (req, res, next) => {
         },
 })
     
-    } catch (errr) {
+    } catch (err) {
         next(err);
     }
 }

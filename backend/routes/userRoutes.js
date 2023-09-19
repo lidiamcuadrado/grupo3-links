@@ -1,9 +1,11 @@
-import express from "express";
-import createUser from "../controllers/users/createUser";
+// importamos express y creamos un router
+const express = require('express');
+const router = express.Router();
 
-const router = express.Router()
+// importamos las funciones controladoras finales
+const { newUserController } = require('../controllers/users')
 
-// Registro
-router.post('/users/register', createUser);
+// definimos los endpoints
+router.post('/users/register', newUserController);
 
-export default router
+module.exports = router

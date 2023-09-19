@@ -1,11 +1,15 @@
-import 'dotenv/config.js'
-import getConnection from "./db.js";
+// importamos variables de entorno de nuestro fichero .env
+require('dotenv').config()
 
+// importamos la función que nos da la conexión con la BDD
+const getDb = require('./getDb.js')
+
+// funcion que borrará las tablas de la BDD si existen
 const init = async () => {
   let connection;
 
   try {
-    let connection = await getConnection();
+    let connection = await getDb();
 
     console.log('-> DELETING TABLES... <-');
 
@@ -72,4 +76,4 @@ const init = async () => {
   }
 };
 
-init();
+init()

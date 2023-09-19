@@ -2,11 +2,10 @@
   "name": "grupo3-links",
   "version": "1.0.0",
   "description": "Proyecto final HACK A BOSS JSB25RT",
-  "main": "index.js",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "start": "node --watch server.js",
-    "initDb": "node ./db/initDb.js"
+    "initDb": "node ./backend/db/initDb.js",
+    "dev": "nodemon ./server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,15 +13,14 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "crypto-js": "^4.1.1",
     "dotenv": "^16.3.1",
-    "eslint": "8.49.0",
     "express": "^4.18.2",
-    "jsonwebtoken": "9.0.2",
     "morgan": "^1.10.0",
-    "mysql2": "^3.6.1",
-    "picocolors": "^1.0.0",
-    "prettier": "^3.0.3",
-    "standard": "17.1.0"
+    "mysql2": "^3.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3"
   }
 }

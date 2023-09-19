@@ -2,7 +2,15 @@
 const bcrypt = require('bcrypt')
 
 // importamos la función que nos permite obtener una conexión con la BDD
-const getDb = require('../../db/getDb')
+const getDb = require('../../db/getDb');
+const { emailAlreadyRegisteredError } = require('../../services/errorService');
+const errorService = require('../../services/errorService');
+
+// Importamos los errores.
+const {
+  emailAlreadyRegisteredError,
+  userAlreadyRegisteredError,
+} = require('../../services/errorService');
 
 // función que se conectará a la BDD
 const newUserModel = async (username, email, password) => {
@@ -19,9 +27,7 @@ const newUserModel = async (username, email, password) => {
 
       // si existe algun usuario con ese email lanzamos error
       if (users.length > 0) {
-        const err = new Error('This email already exists');
-        err.httpStatus = 409;
-        throw err;
+        emailAlreadyRegisteredError();
       }
 
       // buscamos en la BDD algún usuario con ese nombre

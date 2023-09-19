@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 // importamos las rutas
-const routes = require('./backend/routes')
+const routes = require('./backend/routes');
 
 // creamos el servidor
 const app = express();
@@ -16,13 +16,13 @@ const app = express();
 app.use(express.json())
 
 // middleware que muestra por consola información de la petición entrante
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 
 // middleware que evita problemas con las CORS cuando intentamos conectar el cliente con el servidor
-app.use(cors())
+app.use(cors());
 
 // middleware que indica a express donde se encuentran las rutas
-app.use(routes)
+app.use(routes);
 
 // middleware ruta no encontrada
 app.use((req, res) => {

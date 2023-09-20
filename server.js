@@ -12,8 +12,13 @@ const routes = require('./backend/routes');
 
 // Importamos las funciones controladoras de errores.
 const { 
+<<<<<<< HEAD
       errorController,
       notFoundController,
+=======
+    errorController,
+    notFoundController,
+>>>>>>> c2cb393052f7845c722be7f3e3105ba4fbd66bdf
 } = require('./backend/controllers/errors');
 
 // creamos el servidor
@@ -37,7 +42,6 @@ app.use(routes);
 app.use(notFoundController);
 
 // middleware error
-// eslint-disable-next-line no-unused-vars
 app.use(errorController);
 
 // ponemos a funcionar el servidor en el puerto dado

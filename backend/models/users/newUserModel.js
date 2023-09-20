@@ -37,9 +37,7 @@ const newUserModel = async (username, email, password) => {
 
       // si existe algun usuario con ese nombre lanzamos error
       if (users.length > 0) {
-        const err = new Error('This username already exists');
-        err.httpStatus = 409;
-        throw err;
+        userAlreadyRegisteredError()
       }
 
       // antes de crear el usuario tenemos que encriptar la contraseña

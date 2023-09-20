@@ -3,7 +3,7 @@ const { notFoundError } = require("../../services/errorService.js")
 
 // Función controladora final que retorna error 404.
 const notFoundController = (req, res, next) => {
-    next(notFoundError('ruta'));
+    next(notFoundError(req.url));
 }
 
 module.exports =  notFoundController;

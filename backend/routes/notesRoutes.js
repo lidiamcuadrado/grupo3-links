@@ -7,9 +7,15 @@ const authUserController = require('../middlewares/authUserController');
 
 // importamos las funciones controladores finales.
 
-const { newNotesController } = require('../controllers/notes');
+const { newNotesController, newVoteController, deleteVoteController } = require('../controllers/notes');
 
 // Inserta un tweet
 router.post('/notes', authUserController, newNotesController);
+
+//Insertar un voto
+router.post('/notes/:notesId/upVotes', authUserController, newVoteController)
+
+//Eliminar un voto
+router.delete('/notes/:notesId/upVotes', authUserController, deleteVoteController)
 
 module.exports = router

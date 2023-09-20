@@ -24,7 +24,7 @@ router.post('/users/login', loginUserController);
 router.put('/users/avatar', authUserController, editAvatarController);
 
 // Información del propio usuario.
-router.get('/users', authUserController, getUserController);
+router.get('/users/:id', authUserController, getUserController);
 
 
 module.exports = router

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const selectUserByEmailModel = require("../../models/users/selectUserByEmailModel");
 const { missingFieldsError } = require('../../services/errorService')
 const { invalidCredentialsError } = require('../../services/errorService');
-const { missingFieldsError } = require('../../services/errorService')
+
 
 
 const loginUserController = async (req, res, next) => {

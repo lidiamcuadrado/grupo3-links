@@ -12,13 +12,8 @@ const routes = require('./backend/routes');
 
 // Importamos las funciones controladoras de errores.
 const { 
-<<<<<<< HEAD
-      errorController,
-      notFoundController,
-=======
     errorController,
     notFoundController,
->>>>>>> c2cb393052f7845c722be7f3e3105ba4fbd66bdf
 } = require('./backend/controllers/errors');
 
 // creamos el servidor

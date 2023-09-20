@@ -36,7 +36,7 @@ module.exports = {
             message: 'No se puede dar like más de una vez al mismo elemento',
         };
     },
-    missingFieldError() {
+    missingFieldsError() {
         throw {
             httStatus: 400,
             code: 'MISSING_FIELDS',
@@ -77,12 +77,5 @@ module.exports = {
             code: 'USER_ALREADY_REGISTERED',
             message: 'El nombre de usuario ya está registrado',
         };
-    },
-    missingFieldsError() {
-        throw {
-            httStatus: 400,
-            code: 'MISSING_FIELDS',
-            message: 'Empty fields'
-        }
     },
 };

@@ -69,4 +69,11 @@ module.exports = {
             message: 'El nombre de usuario ya está registrado',
         };
     },
+    missingFieldsError() {
+        throw {
+            httStatus: 400,
+            code: 'MISSING_FIELDS',
+            message: 'Empty fields'
+        }
+    },
 };

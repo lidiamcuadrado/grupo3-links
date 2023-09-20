@@ -18,7 +18,7 @@ const init = async () => {
     await connection.query('DROP TABLE IF EXISTS notes');
     await connection.query('DROP TABLE IF EXISTS users');
 
-    console.log('-> CREATING TABLES...<-');
+    console.log('-> CREATING TABLES... <-');
 
     await connection.query(` 
         CREATE TABLE IF NOT EXISTS users (
@@ -54,19 +54,8 @@ const init = async () => {
             FOREIGN KEY(notesId) REFERENCES notes(id)
         )
     `);
-    await connection.query(`
-        CREATE TABLE IF NOT EXISTS downVotes (
-            id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-            userId INT UNSIGNED NOT NULL,
-            notesId INT UNSIGNED NOT NULL, 
-            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY(userId) REFERENCES users(id),
-            FOREIGN KEY(notesId) REFERENCES notes(id)
-        )
-    `);
 
     console.log('¡TABLES SUCCESSFULLY CREATED!');
-
 
   } catch (error) {
     console.error(error);

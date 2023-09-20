@@ -1,8 +1,10 @@
 //Importamos las dependencias.
-const jwt = require ('jsonwebtoken';)
+const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const selectUserByEmail = require("./selectUserByEmail");
+
+const selectUserByEmailModel = require("../../models/users/selectUserByEmailModel");
+const { missingFieldsError } = require('../../services/errorService')
 const { invalidCredentialsError } = require('../../services/errorService');
 
 
@@ -16,7 +18,7 @@ const loginUserController = async (req, res, next) => {
     }
 
     // Otenemos los datos del usario.
-    const user = await selectUserByEmail(email);
+    const user = await selectUserByEmailModel(email);
 
     //Comprobamos si las contraseñas que ha insertadi el usuario es correcta.
     const validPass = await bcrypt.compare(password, user.password);
@@ -43,7 +45,7 @@ const loginUserController = async (req, res, next) => {
         },
 })
     
-    } catch (errr) {
+    } catch (err) {
         next(err);
     }
 }

@@ -3,6 +3,7 @@ require('dotenv').config();
 
 // importamos las dependencias
 const express = require('express');
+const fileupload = require('express-fileupload')
 const morgan = require('morgan');
 const cors = require('cors');
 
@@ -11,17 +12,18 @@ const routes = require('./backend/routes');
 
 // Importamos las funciones controladoras de errores.
 const { 
-        errorController,
-        notFounderController,
-        notFoundController,
+      errorController,
+      notFoundController,
 } = require('./backend/controllers/errors');
 
 // creamos el servidor
 const app = express();
 
 // middleware que desrealiza un boy en formato "raw" creando la propiedad "body" en el objeto request
-app.use(express.json())
+app.use(express.json());
 
+// middleware que permite leer en form-data
+app.use(fileupload());
 // middleware que muestra por consola información de la petición entrante
 app.use(morgan('dev'));
 

@@ -5,7 +5,7 @@ const getDb = require('../../db/getDb');
 const { invalidCredentialsError } = require('../../services/errorService');
 
 
-const selectUserByEmail = async (email) => {
+const selectUserByEmailModel = async (email) => {
     let connection;
 
     try {
@@ -13,7 +13,7 @@ const selectUserByEmail = async (email) => {
 
         // Localizamos el usuaruo con el email dado.
         const [users] = await connection.query(
-        `SELECT ID, password, role FROM users WHERE email = ?`,
+        `SELECT id, password, role FROM users WHERE email = ?`,
         [email]
 );
 
@@ -25,8 +25,8 @@ const selectUserByEmail = async (email) => {
     // Dado que no puede existir más de un usuario con un email determinado, en caso de que el array de usuarios haya algún usuario este estará en la posición 0.
     return users[0];
 } finally {
-    if (connection) connection.releaase();
+    if (connection) connection.release();
     }
 };
 
-module.exports = selectUserByEmail;
+module.exports = selectUserByEmailModel;

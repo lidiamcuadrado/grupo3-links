@@ -1,5 +1,14 @@
 // Importamos las dependencias.
 const joi = require('joi');
+const passwordComplexity = require('joi-password-complexity')
+
+const complexityOptions = {
+  min: 8,
+  max: 30,
+  lowerCase: 1,
+  upperCase: 1,
+  numeric: 1,
+};
 
 // Importamos el objeto con los mensajes de error personalizados.
 const joiErrorMessages = require('../joiErrorMessages');
@@ -8,15 +17,7 @@ const joiErrorMessages = require('../joiErrorMessages');
 const newUserSchema = joi.object({
   username: joi.string().required().messages(joiErrorMessages),
   email: joi.string().email().required().messages(joiErrorMessages),
-  password: joi
-    .string()
-    .min(8) // Exige mínimo 8 caracteres de contraseña
-    .max(100)
-    .regex(
-      /^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[¡!$%^&()_+|~=`{}:";'<>¿?,.])[a-zA-Z0-9¡!$%^&()_+|~=`{}:";'<>¿?,.]{8,}$/
-    )
-    .required()
-    .messages(joiErrorMessages),
+  password: passwordComplexity(complexityOptions).messages(joiErrorMessages),
 });
 
 module.exports = newUserSchema;

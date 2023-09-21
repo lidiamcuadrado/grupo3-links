@@ -9,7 +9,7 @@ const deleteVotesModel = async (notesId, userId) => {
 
         // funcion que se conectara a la base de datos y eliminara un nuevo voto
         const [upVotes] = await connection.query(
-            `SELECT if FROM upVotes WHERE notesId = ? AND userId = ?`,
+            `SELECT id FROM upVotes WHERE notesId = ? AND userId = ?`,
             [notesId, userId]
         )
 

@@ -22,7 +22,7 @@ const insertVoteModel = async (notesId, userId) => {
         }
         
         await connection.query(
-            `INSERT INTO upVotes(notesId, userId) VALUES (?, ?)`,
+            `INSERT INTO upVotes(notesId, userId) VALUES(?, ?)`,
             [notesId, userId]
         )
     } finally {

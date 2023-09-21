@@ -1,14 +1,14 @@
 // Importamos los modelos
-const deleteVoteModel = require('../../models/notes/insertVoteModel')
+const deleteVoteModel = require('../../models/notes/deleteVoteModel')
 
 // función controladora final que elimina un voto existente
 const deleteVoteController = async (req, res, next) => {
     try {
     // obtenemos el id del enlace sobre el que queremos eliminar un voto
 
-    const { upVotesId } = req.params;
+    const { notesId } = req.params;
 
-    await deleteVoteModel(upVotesId, req.user.id)
+    await deleteVoteModel(notesId, req.user.id)
 
     res.send({
         status: "ok",

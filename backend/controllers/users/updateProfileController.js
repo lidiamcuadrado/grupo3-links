@@ -11,7 +11,7 @@ const updateProfileController = async (req, res, next) => {
     const currentUser = await updateProfileModel.getUserById(userId,);
     
     // Verificar si el usuario existe
-    if (!userId) {
+    if (!currentUser) {
       const error = new Error('Usuario no encontrado');
       error.status = 404;
       throw error;
@@ -25,7 +25,7 @@ const updateProfileController = async (req, res, next) => {
       password: password || currentUser.password,
     };
 
-    await updateProfileModel.updateUser(userId, updatedUserData);
+    await updateProfileModel.updateProfileModel(userId, updatedUserData);
 
     res.status(200).json({
       status: 'Ok',

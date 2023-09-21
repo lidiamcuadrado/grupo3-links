@@ -13,7 +13,12 @@ async function getUserById(userId) {
 async function updateProfileModel(userId, updatedData) {
   const connection = await getDB();
   try {
-    await connection.query('UPDATE users SET username, email, password = ? WHERE id = ?', [userId, updatedData]);
+    await connection.query('UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?',  [ 
+      updatedData.username, 
+      updatedData.email, 
+      updatedData.password, 
+      userId, 
+    ]); 
   } finally {
     connection.release();
   }

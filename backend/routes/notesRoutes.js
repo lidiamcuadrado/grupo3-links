@@ -22,6 +22,7 @@ router.post('/notes/:notesId/upVotes', authUserController, newVoteController)
 //Eliminar un voto
 router.delete('/notes/:notesId/upVotes', authUserController, deleteVoteController)
 
+// Devuelve "toda" la informacion de la nota y su user
 router.get('/getNotes', authUserController, getNotesController)
 
 module.exports = router

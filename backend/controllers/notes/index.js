@@ -2,7 +2,7 @@ const newNotesController = require('./newNotesController');
 const newVoteController = require('./newVoteController')
 const deleteVoteController = require('./deleteVoteController')
 const deleteNotesController = require('./deleteNotesController');
-const listNotesController = require('./listNotesController');
+const listNotesController = require('./getNotesController');
 
 
 module.exports = {

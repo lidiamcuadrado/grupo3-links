@@ -11,7 +11,8 @@ const { authUserController } = require('../middlewares/index');
 const { newUserController,
         loginUserController,
         editAvatarController,
-        getUserController
+        getUserController,
+        updateProfileController,
 } = require('../controllers/users')
 
 // definimos los endpoints. Registro de usuario.
@@ -26,5 +27,7 @@ router.put('/users/avatar', authUserController, editAvatarController);
 // Información del propio usuario.
 router.get('/users/:id', authUserController, getUserController);
 
+// actualizar info de ususario
+router.put('/users/:userId/profile', authUserController, updateProfileController)
 
 module.exports = router

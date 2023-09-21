@@ -7,7 +7,8 @@ const { authUserController, notesExistController } = require('../middlewares');
 
 // importamos las funciones controladores finales.
 
-const { newNotesController, newVoteController, deleteVoteController, deleteNotesController } = require('../controllers/notes');
+const { newNotesController, newVoteController, deleteVoteController, deleteNotesController, listNotesController } = require('../controllers/notes');
+
 
 // Inserta un note.
 router.post('/notes', authUserController, newNotesController);
@@ -16,9 +17,12 @@ router.post('/notes', authUserController, newNotesController);
 router.delete('/notes/:notesId', authUserController, notesExistController, deleteNotesController);
 
 //Insertar un voto
-router.post('/notes/:notesId/upVotes', authUserController, newVoteController)
+router.post('/notes/:notesId/upVotes', authUserController, newVoteController);
 
 //Eliminar un voto
-router.delete('/notes/:notesId/upVotes', authUserController, deleteVoteController)
+router.delete('/notes/:notesId/upVotes', authUserController, deleteVoteController);
+
+// Seleccionar todos los notes.
+router.get('/notes', authUserController, listNotesController);
 
 module.exports = router

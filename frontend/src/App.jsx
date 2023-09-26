@@ -1,13 +1,21 @@
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import NotesList from "./components/Register/NotesList";
+import React, { useState } from "react";
+import './App.css';
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
 
-const App = () => {
+function App() {
+  const [currentForm, setCurrentForm] = useState('Login');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
+
   return (
-    <div className="app">
-        <Header />
-        <NotesList />
-        <Footer />
+
+    <div className="App">
+      {
+        currentForm === "Login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+      }
     </div>
   );
 }

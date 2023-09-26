@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap');
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  color: #F3A87E;
+  background-color: #912E2E;
+}
+h1 {
+  font-size: 400%;
+  font-weight: lighter;
+  font-family: 'Road Rage', cursive;
+  color: #F3A87E;
+}
+.auth-form-container,
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+
+  .auth-form-container {
+    
+    padding: 5rem;
+    border-radius: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .App {
+    background-color: #912E2E;
+  }
+}
+label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+input {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 30px;
+  border: none;
+  background-color: #F3A87E;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #912E2E;
+}
+button.log {
+  text-transform: uppercase;
+}
+
+button.log:hover {
+  background-color: #f8c1a3e3;
+  
+}
+.link-btn {
+  background: none;
+  color: white;
+  text-decoration: underline;
+}

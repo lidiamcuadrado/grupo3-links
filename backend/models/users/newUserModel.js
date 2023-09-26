@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt')
 
 // importamos la función que nos permite obtener una conexión con la BDD
 const getDb = require('../../db/getDb');
-const errorService = require('../../services/errorService');
 
 // Importamos los errores.
 const {

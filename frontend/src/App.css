@@ -6,7 +6,6 @@
   padding: 0
 }
 
-
 .App {
   text-align: center;
   display: flex;
@@ -17,12 +16,23 @@
   color: #F3A87E;
   background-color: #912E2E;
 }
+
 h1 {
-  font-size: 400%;
+  font-size: 500%;
   font-weight: lighter;
   font-family: 'Road Rage', cursive;
   color: #F3A87E;
+  margin-bottom: 20px;
 }
+
+h2 {
+  font-size: 200%;
+  font-weight: lighter;
+  font-family: roboto;
+  color: #F3A87E;
+  margin-bottom: 20px;
+}
+
 .auth-form-container,
 .login-form,
 .register-form {
@@ -33,16 +43,18 @@ h1 {
 @media screen and (min-width: 600px) {
 
   .auth-form-container {
-    
+
     padding: 5rem;
     border-radius: 10px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .App {
     background-color: #912E2E;
   }
 }
+
 label {
   text-align: left;
   padding: 0.25rem 0;
@@ -53,10 +65,11 @@ input {
   padding: 1rem;
   border: none;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 button {
-  margin-top: 30px;
+  margin-top: 10px;
   border: none;
   background-color: #F3A87E;
   text-decoration: none;
@@ -65,14 +78,16 @@ button {
   cursor: pointer;
   color: #912E2E;
 }
+
 button.log {
   text-transform: uppercase;
 }
 
 button.log:hover {
   background-color: #f8c1a3e3;
-  
+
 }
+
 .link-btn {
   background: none;
   color: white;

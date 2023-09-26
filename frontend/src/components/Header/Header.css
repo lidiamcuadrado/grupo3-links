@@ -1,0 +1,7 @@
+div.app > header {
+  text-align: center;
+  letter-spacing: 1px;
+  padding: 2rem;
+  background-color: var(--blue-color);
+  color: white;
+}

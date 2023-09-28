@@ -39,11 +39,11 @@ export const signInService = async (email, password) => {
 
   return body;
 };
-// otra para obtener el perfil privado de un usuario
-export const getPrivateProfileService = async () => {
+// // otra para obtener el perfil privado de un usuario
+export const getPrivateProfile = async () => {
   const token = getToken();
 
-  const res = await fetch(`${baseURL}/users`, {
+  const res = await fetch(`${baseURL}/`, {
     headers: {
       Authorization: token,
     },

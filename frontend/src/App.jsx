@@ -2,10 +2,12 @@ import { Route, Routes } from "react-router-dom"
 import './App.css';
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import Header from "./components/Header";
+import Header from "./components/Header"
 import Home from "./pages/home";
 
-function App() {
+
+
+const App = () => {
   return (
     <div className="App">
         <Header/>
@@ -15,7 +17,7 @@ function App() {
         <Route path="/users/login" element={<LoginPage />} />
       </Routes>
     </div>
-  );
+  )
 }
 
 

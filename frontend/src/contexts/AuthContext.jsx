@@ -10,7 +10,7 @@ import {
     getPrivateProfile,
     signInService,
     signUpService,
-} from '../services/authService';
+} from '../services/authService.js';
 
 // Importamos las constantes.
 import { TOKEN_LOCAL_STORAGE_KEY } from '../utils/constants';
@@ -36,14 +36,14 @@ export const AuthProvider = ({ children }) => {
                 setLoading(true);
 
                 const body = await getPrivateProfile();
-
-                setAuthUser(body.data.user);
+        setAuthUser(body.data.user);
             } catch (err) {
                 alert(err.message);
             } finally {
                 setLoading(false);
             }
         };
+
 
         // Obtenemos el token.
         const authToken = getToken();
@@ -57,7 +57,6 @@ export const AuthProvider = ({ children }) => {
         username,
         email,
         password
-        
     ) => {
         try {
             setLoading(true);
@@ -84,7 +83,6 @@ export const AuthProvider = ({ children }) => {
             // Almacenamos el token en el localStorage. Dado que la variable token es un string no es
             // necesario usar JSON.stringify.
             localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, body.data.token);
-
             // Indicamos que el usuario está autorizado.
             setIsAuthenticated(true);
         } catch (err) {
@@ -102,6 +100,7 @@ export const AuthProvider = ({ children }) => {
         // Establecemos el usuario a null y isAuthenticated a false.
         setAuthUser(null);
         setIsAuthenticated(false);
+        navigate('/')
     };
 
     return (

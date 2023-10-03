@@ -19,6 +19,9 @@ const {
 // creamos el servidor
 const app = express();
 
+// Middleware que indica a Express dónde estan ubicados los ficheros estáticos.
+app.use(express.static(process.env.UPLOADS_DIR))
+
 // middleware que desrealiza un boy en formato "raw" creando la propiedad "body" en el objeto request
 app.use(express.json());
 

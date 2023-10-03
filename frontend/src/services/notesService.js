@@ -5,7 +5,7 @@ import { getToken } from "../utils/getToken";
 const baseURL = import.meta.env.VITE_API_URL;
 
 // petición para publiación de una nota
-export const newNoteService = async (formData) => {
+export const newNotesService = async (formData) => {
   const token = getToken();
   
   const res = await fetch(`${baseURL}/notes`, {
@@ -22,7 +22,7 @@ export const newNoteService = async (formData) => {
 };
 
 // eliminar una nota
-export const deleteNoteService = async (notesId) => {
+export const deleteNotesService = async (notesId) => {
   const token = getToken();
 
   const res = await fetch(`${baseURL}/notes/${notesId}`, {
@@ -54,11 +54,13 @@ export const newVoteService = async (notesId, method) => {
 };
 
 // lista de enlaces
-export const getNotesService = async (searchParams) => {
+export const getNotesService = async () => {
   const token = getToken();
 
-  const res = await fetch(`${baseURL}/getNotes?${searchParams}`, {
-    headers: token ? { Authorization: token } : {},
+  const res = await fetch(`${baseURL}/notes`, {
+    headers: { 
+      Authorization: token 
+    } 
   });
 
   const body = await res.json();

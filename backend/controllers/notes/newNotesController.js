@@ -11,20 +11,20 @@ const newNotesSchema = require('../../schemas/notes/newNotesSchema');
 const newNotesController = async (req, res, next) => {
   try {
     // Importamos los datos del body
-    const { text, url } = req.body; //
+    const { title, text, url } = req.body; //
 
     await validateSchema(newNotesSchema, {
       ...req.body,
       ...req.files,
     });
 
-    if (!text || !url) {
+    if (!title || !text || !url) {
       // Verifica que ambos "text" y "url" estén presentes
       missingFieldsError();
     }
 
     // Creamos la nota en la base de datos
-    const notesId = await insertNotesModel(text, url, req.user.id);
+    const notesId = await insertNotesModel(title, text, url, req.user.id);
 
     res.send({
       status: 'ok',
@@ -32,6 +32,7 @@ const newNotesController = async (req, res, next) => {
         note: {
           id: notesId,
           userId: req.user.id,
+          title,
           text,
           url,
           createdAt: new Date(),

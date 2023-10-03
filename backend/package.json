@@ -4,7 +4,7 @@
   "description": "Proyecto final HACK A BOSS JSB25RT",
   "main": "server.js",
   "scripts": {
-    "initDb": "node ./backend/db/initDb.js",
+    "initDb": "node ./db/initDb.js",
     "dev": "nodemon ./server.js"
   },
   "keywords": [],

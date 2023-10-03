@@ -6,14 +6,14 @@ const router = express.Router();
 // Importamos las funciones controladoras intermedias.
 const { authUserController } = require('../middlewares/index');
 
-
 // importamos las funciones controladoras finales
 const { newUserController,
         loginUserController,
         editAvatarController,
         getUserController,
         updateProfileController,
-} = require('../controllers/users')
+        getPublicUserController,
+} = require('../controllers/users') // 
 
 // definimos los endpoints. Registro de usuario.
 router.post('/users/register', newUserController);
@@ -25,9 +25,13 @@ router.post('/users/login', loginUserController);
 router.put('/users/avatar', authUserController, editAvatarController);
 
 // Información del propio usuario.
-router.get('/users/:id', authUserController, getUserController);
+router.get('/users', authUserController, getUserController);
 
 // actualizar info de ususario
 router.put('/users/:userId/profile', authUserController, updateProfileController)
+
+// Devuelve la informacion publica de un user y sus notas.
+router.get('/users/:userId', authUserController, getPublicUserController)
+
 
 module.exports = router

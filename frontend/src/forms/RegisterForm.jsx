@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 // Importamos los hooks.
 import { useState } from 'react';
+import { getToken } from '../utils/getToken';
 
 
 
@@ -26,6 +27,8 @@ const RegisterForm = ({ authRegister, loading }) => {
         <form className="register-form" onSubmit={(e) => {
                     e.preventDefault();
                     authRegister(username, email, password);
+                    const token = getToken()
+                    console.log(token);
                 }
 }>
             <label htmlFor="name">Username</label>

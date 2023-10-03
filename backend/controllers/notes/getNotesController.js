@@ -4,12 +4,12 @@ const getNotesController = async (req, res, next) => {
   try {
     const notes = await getNotesModel();
 
-    res.send({
+    res.json({
       status: 'ok',
       data: {
-        enlaces: notes.map(note => ({
+        notes: notes.map(note => ({
           ...note,
-          votes: note.likes,
+          votes: note.votes,
           
         }))
       }

@@ -7,6 +7,7 @@ const joiErrorMessages = require('../joiErrorMessages');
 
 // Creamos el esquema de validación.
 const newNotesSchema = joi.object({
+  title: joi.string().required().messages(joiErrorMessages),
   text: joi.string().required().messages(joiErrorMessages),
   url: joi.string().required().messages(joiErrorMessages),
 });

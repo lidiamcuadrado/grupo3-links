@@ -14,7 +14,7 @@ const { saveFileError } = require('../services/errorService');
 const savePhoto = async (img, width) => {
     try {
         // Creamos la ruta absoluta al directorio de subida de archivos.
-        const uploadsPath = path.join(__dirname, '..', '..', UPLOADS_DIR);
+        const uploadsPath = path.join(__dirname, '..', UPLOADS_DIR);
 
         try {
             // El método "access" lanza un error si la ruta especificada no existe.

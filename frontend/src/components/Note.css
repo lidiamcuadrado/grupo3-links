@@ -1,0 +1,63 @@
+.NoteContainer{
+  display: flex;
+  margin: 30px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.295);
+  max-width: 300px;
+  gap: 3px;
+  padding: 16px;
+}
+
+.CardBody {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.UserNameNote {
+  text-transform: capitalize;
+  font-size: 90%;
+}
+.NoteAvatar {
+  max-width: 55px;
+  max-height: 55px;
+  /* margin: 5px; */
+}
+.NoteHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 15px;
+}
+.NoteLink {
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #C88484;
+  height: 25px;
+  min-width: 150px;
+  font-style: italic;
+}
+
+.NoteLink:hover{
+  cursor: pointer;
+  background-color:#912E2E;
+}
+.NoteText{
+  cursor:context-menu ;
+  font-size: 75%;
+  height: 50px;
+}
+
+.mb-2 {
+  color: #912E2E;
+  font-weight: lighter;
+  font-family: 'Road Rage', cursive;
+  margin-bottom: 10px;
+  font-size: 180%;
+  cursor: context-menu;
+}

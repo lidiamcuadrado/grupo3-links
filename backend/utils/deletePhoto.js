@@ -12,7 +12,7 @@ const { deleteFileError } = require('../services/errorService');
 const deletePhoto = async (imgName) => {
     try {
         // Creamos la ruta absoluta al archivo que queremos eliminar.
-        const imgPath = path.join(__dirname, '..', '..', UPLOADS_DIR, imgName);
+        const imgPath = path.join(__dirname, '..', UPLOADS_DIR, imgName);
 
         try {
             // El método "access" lanza un error si la ruta especificada no existe.

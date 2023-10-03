@@ -9,15 +9,24 @@
 
 .App {
   text-align: center;
-  display: flex;
+  /* display: flex; */
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-family: 'Roboto', sans-serif;
   color: #F3A87E;
   background-color: #912E2E;
 }
 
+Header {
+  height: 150px;
+  width: 100%;
+}
+Header nav{
+  height: 0px;
+  align-items: center;
+  justify-content: center;
+}
 h1 {
   font-size: 600%;
   font-weight: lighter;
@@ -33,9 +42,15 @@ h2 {
   margin-bottom: 25px;
 }
 
+main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 .auth-form-container,
 .login-form,
 .register-form {
+  max-width: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -73,7 +88,7 @@ input::placeholder {
   color: rgb(194, 194, 194);
 }
 
-button {
+button.loginbutton {
   margin-top: 10px;
   border: none;
   background-color: #F3A87E;

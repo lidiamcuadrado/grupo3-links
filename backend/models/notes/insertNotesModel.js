@@ -3,7 +3,7 @@ const getDb = require('../../db/getDb')
 
 
 // función que se conectará a la BDD
-const insertNotesModel = async (text, url, userId) => {
+const insertNotesModel = async (title, text, url, userId) => {
     let connection;
 
     try {
@@ -11,8 +11,8 @@ const insertNotesModel = async (text, url, userId) => {
 
     // Creamos notes en la base de datos y obtenemos información sobre su id.
     const [notes] = await connection.query(
-        `INSERT INTO notes(text, url, userId) VALUES(?, ?, ?)`,
-        [text, url, userId] 
+        `INSERT INTO notes(title, text, url, userId) VALUES(?, ?, ?, ?)`,
+        [title, text, url, userId] 
     );
     
     // retornamos el id de la nota (note) que acabamos de crear.

@@ -1,0 +1,21 @@
+.tweet-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+.tweet-footer>div {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-footer>div>div.heart {
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  background-image: url('/heart_animation.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 2900%;
+}

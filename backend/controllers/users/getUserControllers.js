@@ -6,8 +6,6 @@ const getUserController = async (req, res, next) => {
     try {
         const user = await selectUserByIdModel(req.params.id);
 
-        if (user.id !== req.user.id) delete user.email
-
         res.send({
             status: 'ok',
             data: {

@@ -1,8 +1,8 @@
-// importamos la función que retorna el token
-import { getToken } from "../utils/getToken";
-
 // importamos la variable de entorno de la URL
 const baseURL = import.meta.env.VITE_API_URL;
+
+// importamos la función que retorna el token
+import { getToken } from "../utils/getToken";
 
 // petición para registro de usuario
 export const signUpService = async (username, email, password) => {
@@ -39,27 +39,13 @@ export const signInService = async (email, password) => {
 
   return body;
 };
-// // otra para obtener el perfil privado de un usuario
-export const getPrivateProfile = async () => {
-  const token = getToken();
-
-  const res = await fetch(`${baseURL}/`, {
-    headers: {
-      Authorization: token,
-    },
-  });
-
-  const body = await res.json();
-
-  return body;
-};
 // otra más para el cambio de perfil
 export const updateProfileService = async (
   userId,
   username,
   email,
   password
-) => {
+  ) => {
   const res = await fetch(`${baseURL}/users/${userId}/profile`, {
     method: "PUT", // Usamos el método PUT para actualizar el perfil.
     headers: {
@@ -73,6 +59,20 @@ export const updateProfileService = async (
   });
 
   const body = await res.json();
-
+  
   return body;
+};
+
+// otra para obtener el perfil privado de un usuario
+export const getPrivateProfile = async () => {
+  const token = getToken();
+  const res = await fetch(`${baseURL}/users`, {
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const body = await res.json();
+  console.log(body);
+    return body;
 };

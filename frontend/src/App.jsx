@@ -1,23 +1,24 @@
-//Importamos los componentes.
-import { Route, Routes } from 'react-router-dom'
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom"
+import './App.css';
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import Header from "./components/Header"
+import Home from "./pages/home";
 
-//Importamos las páginas.
-import NoteSearchPage from "./pages/NoteSearchPage.jsx/NoteSearchPage";
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
+
 
 const App = () => {
   return (
-    <div className="app">
-      <Header/>
+    <div className="App">
+        <Header/>
       <Routes>
-        <Route path='/' element={<NoteSearchPage />} />
-        <Route path='*' element={<NotFoundPage />} />
+        <Route path="/notes" element={<Home />} />
+        <Route path="/users/register" element={<RegisterPage />} />
+        <Route path="/users/login" element={<LoginPage />} />
       </Routes>
-      <Footer/>
     </div>
   )
 }
+
 
 export default App;

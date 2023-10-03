@@ -1,0 +1,12 @@
+.tweet-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-body>p {
+  margin: 1rem;
+}
+
+.tweet-body>img {
+  width: 100%;
+}

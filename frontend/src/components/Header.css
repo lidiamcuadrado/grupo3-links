@@ -1,0 +1,34 @@
+/* div.app>header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--blue-color);
+  color: white;
+  padding: 0.7rem 2rem;
+} */
+
+img {
+  width: 35px;
+}
+Header a {
+  text-decoration: none;
+  color: #F3A87E;
+}
+
+span {
+  align-self: center;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  height: auto;
+}

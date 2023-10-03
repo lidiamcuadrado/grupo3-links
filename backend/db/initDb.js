@@ -37,8 +37,8 @@ const init = async () => {
         CREATE TABLE IF NOT EXISTS notes (
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
             userId INT UNSIGNED NOT NULL,
-            text VARCHAR(255) NOT NULL,
-            image VARCHAR(100),
+            text VARCHAR(120) NOT NULL,
+            title VARCHAR(100),
             url VARCHAR(255),
             createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY(userId) REFERENCES users(id)

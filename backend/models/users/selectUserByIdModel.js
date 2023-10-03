@@ -11,7 +11,7 @@ const selectUserById = async (userId) => {
     try {
         connection = await getDb();
 
-        // Localizamos el usuaruo con el id dado.
+        // Localizamos el usuario con el id dado.
         const [users] = await connection.query(
           `SELECT id, username, email, avatar, role FROM users WHERE id = ?`,
           [userId]

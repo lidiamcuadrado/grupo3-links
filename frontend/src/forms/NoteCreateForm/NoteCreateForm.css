@@ -1,0 +1,48 @@
+.note-create-form > textarea {
+  width: 600px;
+  height: 100px;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  resize: none;
+}
+
+.note-create-form > div {
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+  gap: 0.2rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.note-create-form > div input.active {
+  display: none;
+}
+
+.note-create-form > div > img {
+  height: 35px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.note-create-form > div > img:hover {
+  filter: brightness(0.5);
+}
+
+.note-create-form > div > button {
+  margin-top: 0;
+  padding: 0 1.5rem;
+}
+
+.note-create-form > div > input {
+  display: none;
+}
+
+.note-create-form > div > label {
+  padding: 0.5rem 1rem;
+  background-color: rgb(155, 155, 155);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}

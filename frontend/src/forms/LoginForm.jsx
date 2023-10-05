@@ -19,6 +19,7 @@ const LoginForm = ({ authLogin, loading }) => {
     <>
       <div className="auth-form-container">
         <h1>WeShare!</h1>
+        <div className="auth-form">
         <h2>Login</h2>
         <form
           className="login-form"
@@ -55,6 +56,7 @@ const LoginForm = ({ authLogin, loading }) => {
         <button className="link-btn" onClick={routeChange}>
           Dont have an account? Register here.
         </button>
+      </div>
       </div>
     </>
   );

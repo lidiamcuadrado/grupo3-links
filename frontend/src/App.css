@@ -1,105 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
+/* Estilo para el contenedor principal del formulario */
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  background-color: #912e2e; 
+  padding: 20px;
 }
 
-.App {
-  text-align: center;
-  /* display: flex; */
-  min-height: 100vh;
-  /* align-items: center;
-  justify-content: center; */
-  font-family: 'Roboto', sans-serif;
-  color: #F3A87E;
+/* Estilo para el recuadro del formulario */
+.auth-form {
+  background-color: #f5f5f5; 
+  padding: 30px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
 }
 
-h1 {
-  font-size: 600%;
-  font-weight: lighter;
-  font-family: 'Road Rage', cursive;
-  color: #F3A87E;
+.auth-form .register-form,
+.auth-form .login-form { 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+}
+
+/* Estilo para el título principal */
+.auth-form-container h1 {
+  font-size: 2em;
+  color: #f3a87e; 
+  margin-bottom: 20px;
+}
+
+.auth-form h2 {
+  font-size: 1.5em;
+  color: #000000; 
+  margin-bottom: 20px;
+}
+
+/* Estilo para los campos de entrada de texto */
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #f5f5f5; 
+  color: #fff; 
+}
+
+/* Estilo para el botón de registro o inicio */
+.auth-form button.log {
+  background-color: #ede1e1; 
+  color: #f3a87e; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s; 
   margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 200%;
-  font-weight: lighter;
-  color: #F3A87E;
-  margin-bottom: 25px;
+.auth-form button.log:hover {
+  background-color: #f3a87e; 
+  color: #fff; 
 }
 
-main {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-.auth-form-container,
-.login-form,
-.register-form {
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
+.auth-form button.log:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed;
 }
 
-@media screen and (min-width: 600px) {
-
-  .auth-form-container {
-
-    padding: 5rem;
-    border-radius: 10px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .App {
-    background-color: #912E2E;
-  }
-}
-
-label {
-  text-align: left;
-  padding: 0.25rem 0;
-  font-weight: 400;
-}
-
-input {
-  margin: 0.5rem 0;
-  padding: 1rem;
+/* Estilo para el enlace de cambio de inicio a registro */
+.auth-form .link-btn {
+  background-color: transparent;
   border: none;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-input::placeholder {
-  color: rgb(194, 194, 194);
-}
-
-button.loginbutton {
-  margin-top: 10px;
-  border: none;
-  background-color: #F3A87E;
-  text-decoration: none;
-  padding: 20px;
-  border-radius: 10px;
+  color: #f3a87e; 
+  font-size: 1em;
   cursor: pointer;
-  color: #912E2E;
-  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px; 
 }
 
-button.log {
-  text-transform: uppercase;
+/* Estilo para el enlace de cambio de inicio a registr al hacer hover */
+.auth-form .link-btn:hover {
+  text-decoration: none;
 }
 
-button.log:hover {
-  background-color: #f6d4c2e3;
-
-}
-
-.link-btn {
-  background: none;
-  color: white;
-}

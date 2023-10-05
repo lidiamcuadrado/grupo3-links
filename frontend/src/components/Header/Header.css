@@ -1,0 +1,220 @@
+/* Fuentes de google */
+
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/* Estilo para la nav bar (header principal) */
+
+
+.Cabecera {
+    width: 100%;
+    background-color: #912E2E;
+    display: flex;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Estilo para el logo WeShare (H1) */
+
+.Cabecera-h1 {
+    position: absolute;
+    left: 1.8em;
+    top: 0.5em;
+    font-size: 300%;
+    font-weight: lighter;
+    font-family: 'Road Rage', cursive;
+    color: #F3A87E;
+}
+
+/* Estilo para el buscador */
+
+.Contenedor-buscador {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: #000000;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0px 100px 0px 10px;
+    box-shadow: 0px 0px 8px #ddd;
+    margin-right: 15px;
+}
+
+.Buscar-icono {
+    margin-right: 10px;
+}
+
+.Contenedor-buscador input {
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+/* Estilo para el botón de publicar */
+
+.Contenedor-publicar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFE4B0;
+    color: #000000;
+    border: none;
+    height: 2.5rem;
+    padding: 0px 20px;
+    border-radius: 10px;
+}
+
+.Navlink-publicar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contenedor-publicar:hover {
+    background-color: #FAAA7D;
+    color: #FFFFFF;
+}
+
+.Compartir-icono {
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+}
+
+/* Estilo para la foto de perfil en el header */
+
+.Imagen-Perfil-1 {
+    position: fixed;
+    top: 0.5em;
+    right: 1em;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Estilo para botón de menú hamburguesa */
+
+.Cabecera-boton {
+    position: fixed;
+    top: 20px;
+    left: 1em;
+    cursor: pointer;
+}
+
+.Menu-icono {
+    width: 2em;
+    height: 2em;
+    fill: white;
+}
+
+/* Estilo para el menú hamburguesa -> YA desplegado */
+
+.Cabecera-nav {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: 30%;
+    height: 100vh;
+    background-color: #912E2E;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: left 0.5s ease, opacity 0.5s ease;
+}
+
+.Nav-h2 {
+    font-size: 300%;
+    font-weight: lighter;
+    font-family: 'Road Rage', cursive;
+    color: #F3A87E;
+}
+
+.Cabecera-nav.isActive {
+    left: 0;
+    opacity: 1;
+}
+
+.CerrarBoton {
+    position: absolute;
+    top: 0.5em;
+    right: 0;
+    margin: 1em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.Cerrar-icono {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.Cabecera-nav.isActive .CerrarBoton {
+    display: block;
+}
+
+.Contenedor-usuario {
+    background-color: #c57f7f;
+    padding: 5px 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 5.5em;
+    right: 4em;
+    margin: 1em;
+}
+
+.Nav-ul {
+    position: absolute;
+    top: 11em;
+    left: 2em;
+    flex-direction: column;
+}
+
+.Nav-li {
+    display: flex;
+    align-items: center;
+    margin: 1.5em;
+}
+
+.Nav-iconos {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+
+/* Estilo para el logo dentro del menú hamburguesa (desplegado) */
+
+.Nav-h2 {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+}
+
+/* Estilo para la imagen de perfil dentro del menú hamburguesa (desplegado) */
+
+.Contenedor-Imagen-2 {
+    position: absolute;
+    left: 2.5em;
+    top: 5em;
+    width: 100%;
+    height: auto;
+}
+
+.Imagen-Perfil-2 {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Falta un overlay para cuando se abre el menú desplegable */

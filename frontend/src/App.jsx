@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import NoteCreatePage from "./pages/NoteCreatePage/NoteCreatePage.jsx";
+// import NoteCreatePage from "./pages/NoteSearchPage/NoteSearchPage.jsx";
 
 const App = () => {
   // Estado para rastrear si el usuario está autenticado o no

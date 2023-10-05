@@ -15,18 +15,8 @@
   justify-content: center; */
   font-family: 'Roboto', sans-serif;
   color: #F3A87E;
-  background-color: #912E2E;
 }
 
-Header {
-  height: 150px;
-  width: 100%;
-}
-Header nav{
-  height: 0px;
-  align-items: center;
-  justify-content: center;
-}
 h1 {
   font-size: 600%;
   font-weight: lighter;

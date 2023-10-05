@@ -3,7 +3,7 @@ import { useNotes } from '../../hooks/useNotes';
 
 //Importamos los componentes.
 import NoteListItem from '../../components/NoteListItem/NoteListItem';
-import NoteSearchForm from '../../forms/NoteSearchFound/NoteSearchForm';
+import NoteSearchForm from '../../forms/NoteSearchForm/NoteSearchForm';
 
 //Importamos estilos.
 import './NoteSearchPage.css';

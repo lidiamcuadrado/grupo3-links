@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-// import NoteCreatePage from "./pages/NoteSearchPage/NoteSearchPage.jsx";
+// import NoteSearchPage from "./pages/NoteSearchPage/NoteSearchPage.jsx";
 
 const App = () => {
   // Estado para rastrear si el usuario está autenticado o no
@@ -49,12 +49,12 @@ const App = () => {
             )
           }
         />
-        <Route
+        {/* <Route
           path="/message"
           element={
-            isAuthenticated ? <NoteCreatePage /> : <Navigate to="/users/login" />
+            isAuthenticated ? <NoteSearchPage /> : <Navigate to="/users/login" />
           }
-        />
+        /> */}
       </Routes>
     </div>
   );

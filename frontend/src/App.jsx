@@ -1,9 +1,14 @@
+
 import { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
+
+import { Route, Routes } from "react-router-dom";
+
 import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/Header";
+
 import Home from "./pages/Home";
 // import NoteSearchPage from "./pages/NoteSearchPage/NoteSearchPage.jsx";
 
@@ -16,8 +21,13 @@ const App = () => {
     setIsAuthenticated(status);
   };
 
+import Home from "./pages/home";
+import NoteCreatePage from "./pages/NoteCreatePage/NoteCreatePage.jsx";
+
+
   return (
     <div className="App">
+
       {/* Mostrar el Header solo si el usuario está autenticado */}
       {isAuthenticated && <Header />}
 
@@ -55,6 +65,14 @@ const App = () => {
             isAuthenticated ? <NoteSearchPage /> : <Navigate to="/users/login" />
           }
         /> */}
+
+      <Header />
+      <Routes>
+        <Route path="/notes" element={<Home />} />
+        <Route path="/users/register" element={<RegisterPage />} />
+        <Route path="/users/login" element={<LoginPage />} />
+        <Route path="/message" element={<NoteCreatePage />} />
+
       </Routes>
     </div>
   );

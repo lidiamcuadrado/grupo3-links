@@ -10,11 +10,13 @@ import { newNotesService } from "../../services/notesService";
 import "./NoteCreateForm.css";
 
 const NoteCreateForm = () => {
-
   const navigate = useNavigate();
 
+  // Llamada a lo que hay en la base de datos(?)
+  const [title, setTitle] = useState("");
+  const [url, setURL] = useState("");
   const [text, setText] = useState("");
-  const [setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   //Función que crea una note/post.
   const handleCreateNote = async () => {
@@ -23,22 +25,19 @@ const NoteCreateForm = () => {
       //Creamos un objeto formData y establecemos sus propiedades
       const formData = new FormData();
       formData.append("text", text);
+      formData.append("url", url);
+      formData.append("title", title);
 
       //Creamos la nota en la base de datos
       await newNotesService(formData);
 
-      
-
-    // Redirigimos a la página principal.
-    navigate('/');
-} catch (err) {
-    alert(err.message);
-} finally {
-    setLoading(false);
-}
-
-
-    
+      // Redirigimos a la página principal.
+      navigate("/");
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,6 +48,25 @@ const NoteCreateForm = () => {
         handleCreateNote();
       }}
     >
+      <label htmlFor="title">Título:</label>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        id="title"
+        placeholder="Título"
+        required
+      />
+      <label>URL:</label>
+      <input
+        type="url"
+        value={url}
+        onChange={(e) => setURL(e.target.value)}
+        placeholder="http://ejemplo.com"
+        id="url"
+        required
+      />
+      <label>Comentario:</label>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -56,9 +74,11 @@ const NoteCreateForm = () => {
         autoFocus
         required
       />
+      <button type="submit" disabled={loading}>
+        Publicar
+      </button>
     </form>
   );
 };
-
 
 export default NoteCreateForm;

@@ -45,7 +45,7 @@ export const updateProfileService = async (
   username,
   email,
   password
-  ) => {
+) => {
   const res = await fetch(`${baseURL}/users/${userId}/profile`, {
     method: "PUT", // Usamos el método PUT para actualizar el perfil.
     headers: {
@@ -59,7 +59,7 @@ export const updateProfileService = async (
   });
 
   const body = await res.json();
-  
+
   return body;
 };
 
@@ -73,6 +73,6 @@ export const getPrivateProfile = async () => {
   });
 
   const body = await res.json();
-  console.log(body);
-    return body;
+  // console.log(body);
+  return body;
 };

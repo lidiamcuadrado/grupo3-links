@@ -20,9 +20,6 @@ const RegisterForm = ({ authRegister, loading }) => {
     <>
       <div className="auth-form-container">
         <h1>WeShare!</h1>
-
-        <div className="auth-form">
-
         <h2>Register</h2>
         <form
           className="register-form"
@@ -33,15 +30,6 @@ const RegisterForm = ({ authRegister, loading }) => {
             console.log(token);
           }}
         >
-
-          <label htmlFor="username">Username</label>
-          <input
-            value={username}
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
-            id="username"
-            placeholder="Username"
-=======
           <label htmlFor="name">Username</label>
           <input
             value={username}
@@ -49,7 +37,6 @@ const RegisterForm = ({ authRegister, loading }) => {
             onChange={(e) => setUsername(e.target.value)}
             id="name"
             placeholder="User name"
-
             autoFocus
             required
           />
@@ -80,9 +67,6 @@ const RegisterForm = ({ authRegister, loading }) => {
         <button className="link-btn" onClick={routeChange}>
           Already have an account? Login here.
         </button>
-
-        </div>
-
       </div>
     </>
   );

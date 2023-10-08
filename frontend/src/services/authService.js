@@ -36,7 +36,6 @@ export const signInService = async (email, password) => {
   });
 
   const body = await res.json();
-
   return body;
 };
 // otra más para el cambio de perfil
@@ -45,11 +44,14 @@ export const updateProfileService = async (
   username,
   email,
   password
-) => {
+  ) => {
+    const token = getToken();
+    
   const res = await fetch(`${baseURL}/users/${userId}/profile`, {
     method: "PUT", // Usamos el método PUT para actualizar el perfil.
     headers: {
       "Content-Type": "application/json",
+      Authorization: token,
     },
     body: JSON.stringify({
       username,
@@ -59,7 +61,7 @@ export const updateProfileService = async (
   });
 
   const body = await res.json();
-
+  console.log(body);
   return body;
 };
 
@@ -73,6 +75,5 @@ export const getPrivateProfile = async () => {
   });
 
   const body = await res.json();
-  // console.log(body);
-  return body;
+    return body;
 };

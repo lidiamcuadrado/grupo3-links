@@ -18,8 +18,10 @@ const NoteCreatePage = () => {
 
   return (
     <main>
-      <h2>¿Qué quieres compartir? 🤔</h2>
+      <h2 id='share'>¿Qué quieres compartir?</h2>
+      <div className='formNotes'>
       <NoteCreateForm />
+      </div>
     </main>
   );
 };

@@ -10,6 +10,7 @@ import {
     getPrivateProfile,
     signInService,
     signUpService,
+    updateProfileService,
 } from '../services/authService.js';
 
 // Importamos las constantes.
@@ -100,12 +101,27 @@ export const AuthProvider = ({ children }) => {
         // Establecemos el usuario a null y isAuthenticated a false.
         setAuthUser(null);
         setIsAuthenticated(false);
-        navigate('/')
+        navigate('/users/login')
     };
+
+  // Función que actualiza los datos del usuario.
+    const authUpdateProfile = async (userId, username, email, password) => {
+        try {
+            setLoading(true);
+
+            await updateProfileService(userId, username, email, password);
+        } catch (error) {
+            console.error("Error updating profile:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
 
     return (
         <AuthContext.Provider
             value={{
+                authUpdateProfile,
                 authUser,
                 isAuthenticated,
                 authRegister,

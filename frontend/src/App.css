@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
   margin: 0;
@@ -8,27 +8,28 @@
 }
 
 .App {
+  /* margin-top: 120px; */
   text-align: center;
   /* display: flex; */
   min-height: 100vh;
   /* align-items: center;
   justify-content: center; */
-  font-family: "Roboto", sans-serif;
-  color: #f3a87e;
+  font-family: 'Roboto', sans-serif;
+  color: #F3A87E;
 }
 
 h1 {
   font-size: 600%;
   font-weight: lighter;
-  font-family: "Road Rage", cursive;
-  color: #f3a87e;
+  font-family: 'Road Rage', cursive;
+  color: #F3A87E;
   margin-bottom: 10px;
 }
 
 h2 {
   font-size: 200%;
   font-weight: lighter;
-  color: #f3a87e;
+  color: #F3A87E;
   margin-bottom: 25px;
 }
 
@@ -36,6 +37,7 @@ main {
   display: flex;
   align-content: center;
   justify-content: center;
+  flex-direction: column;
 }
 .auth-form-container,
 .login-form,
@@ -45,8 +47,38 @@ main {
   flex-direction: column;
 }
 
+#share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Road rage';
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+.formNotes {
+  display: flex;
+  justify-content: center;
+}
+
+.note-create-form{
+  height: 500px;
+  width: 280px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  display: flex;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+  justify-content: space-evenly;
+}
+
 @media screen and (min-width: 600px) {
+
   .auth-form-container {
+
     padding: 5rem;
     border-radius: 10px;
   }
@@ -54,7 +86,7 @@ main {
 
 @media screen and (max-width: 600px) {
   .App {
-    background-color: #912e2e;
+    background-color: #912E2E;
   }
 }
 
@@ -76,20 +108,33 @@ input::placeholder {
   color: rgb(194, 194, 194);
 }
 
-button.loginbutton {
+.loginbutton {
   margin-top: 10px;
   border: none;
-  background-color: #f3a87e;
+  background-color: #F3A87E;
   text-decoration: none;
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
-  color: #912e2e;
+  color: #912E2E;
+  font-weight: bold;
+}
+
+.log {
+  margin-top: 10px;
+  border: none;
+  background-color: #F3A87E;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
   font-weight: bold;
 }
 
 button.log {
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 button.log:hover {
@@ -99,4 +144,16 @@ button.log:hover {
 .link-btn {
   background: none;
   color: white;
+}
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 }

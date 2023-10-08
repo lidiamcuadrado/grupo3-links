@@ -13,7 +13,7 @@ const selectUserById = async (userId) => {
 
         // Localizamos el usuario con el id dado.
         const [users] = await connection.query(
-          `SELECT id, username, email, avatar, role FROM users WHERE id = ?`,
+          `SELECT id, username, email, avatar, role, createdAT FROM users WHERE id = ?`,
           [userId]
         );
 

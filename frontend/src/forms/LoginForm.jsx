@@ -1,75 +1,56 @@
 // Importamos los prop-types.
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+
+import { Link } from 'react-router-dom';
 
 import { useNavigate } from "react-router-dom";
 // Importamos los hooks.
-import { useState } from "react";
+import { useState } from 'react';
 
 const LoginForm = ({ authLogin, loading }) => {
-  let navigate = useNavigate();
-  const routeChange = () => {
-    let path = `/users/register`;
-    navigate(path);
-  };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `/users/register`; 
+    navigate(path);}
 
-  return (
-    <>
-      <div className="auth-form-container">
-        <h1>WeShare!</h1>
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-        <div className="auth-form">
-
-        <h2>Login</h2>
-        <form
-          className="login-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            authLogin(email, password);
-          }}
-        >
-          <label htmlFor="email">email</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            placeholder="youremail@gmail.com"
-            id="email"
-            name="email"
-            autoFocus
-            required
-          />
-          <label htmlFor="password">password</label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="********"
-            id="password"
-            name="password"
-            required
-          />
-          <button className="log" disabled={loading}>
-            LogIn
-          </button>
-        </form>
-        <button className="link-btn" onClick={routeChange}>
-          Dont have an account? Register here.
-        </button>
-      </div>
-
-      </div>
-
-
-    </>
-  );
+    return (
+        <>
+          <div className="auth-form-container">
+          <Link to="/">
+            <button className='loginh1'>WeShare!</button>
+          </Link>
+            <h2 className='loginh2'>Login</h2>
+              <form className="login-form" onSubmit={(e) => {
+                    e.preventDefault();
+                    authLogin(email, password);
+                }}>
+                <label htmlFor="email">email</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                <label htmlFor="password">password</label>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                <button className="log" disabled={loading}>LogIn</button>
+              </form>
+            <button className="link-btn" onClick={routeChange}>Dont have an account? Register here.</button>
+          </div>
+        </>
+    );
 };
 
 LoginForm.propTypes = {
-  authLogin: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
+    authLogin: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+};
+
+export default LoginForm;
+
+
+LoginForm.propTypes = {
+    authLogin: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;

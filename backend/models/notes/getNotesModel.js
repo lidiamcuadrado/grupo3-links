@@ -1,25 +1,38 @@
 const getDb = require("../../db/getDb");
 
-const getNotesModel = async () => {
-  let connection;
-  try {
-    connection = await getDb();
+// Función que se conectará a la base de datos y devolverá todos los tweets.
+const getNotesModel = async (keyword = '', userId = 0) => {
+    let connection;
 
-    const query = `
-      SELECT notes.id, notes.title, notes.text, notes.url, COUNT(upVotes.id) AS likes, users.username, users.avatar
-      FROM notes
-      LEFT JOIN upVotes ON notes.id = upVotes.notesId
-      INNER JOIN users ON notes.userId = users.id
-      GROUP BY notes.id
-    `;
+    try {
+        connection = await getDb();
 
-    const [queryes] = await connection.query(query);
+        const [notes] = await connection.query(
+            `
+                SELECT 
+                    t.id,
+                    t.text,
+                    t.title,
+                    t.url,
+                    u.avatar,
+                    t.userId,
+                    u.username,
+                    t.userId = ? AS owner,
+                    COUNT(l.id) AS votes,
+                    t.createdAt
+                FROM notes t
+                INNER JOIN users u ON u.id = t.userId
+                LEFT JOIN upVotes l ON l.notesId = t.id
+                WHERE u.username LIKE ? OR t.text LIKE ?
+                GROUP BY t.id;
+            `,
+            [userId, userId, `%${keyword}%`, `%${keyword}%`]
+        );
 
-    return queryes
-  
-  } finally {
-    if (connection) connection.release();
-  }
+        return notes;
+    } finally {
+        if (connection) connection.release();
+    }
 };
 
 module.exports = getNotesModel;

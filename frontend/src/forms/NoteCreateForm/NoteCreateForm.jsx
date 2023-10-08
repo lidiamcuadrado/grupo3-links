@@ -7,8 +7,6 @@ import { useState } from "react";
 
 import { newNotesService } from "../../services/notesService";
 
-import "./NoteCreateForm.css";
-
 const NoteCreateForm = () => {
   const navigate = useNavigate();
 
@@ -22,6 +20,8 @@ const NoteCreateForm = () => {
   const handleCreateNote = async () => {
     try {
       setLoading(true);
+
+      
       //Creamos un objeto formData y establecemos sus propiedades
       const formData = new FormData();
       formData.append("text", text);
@@ -32,7 +32,7 @@ const NoteCreateForm = () => {
       await newNotesService(formData);
 
       // Redirigimos a la página principal.
-      navigate("/");
+      navigate("/notes");
     } catch (err) {
       alert(err.message);
     } finally {
@@ -59,22 +59,22 @@ const NoteCreateForm = () => {
       />
       <label>URL:</label>
       <input
-        type="url"
+        type="text"
         value={url}
         onChange={(e) => setURL(e.target.value)}
-        placeholder="http://ejemplo.com"
+        placeholder="www.example.com"
         id="url"
         required
       />
       <label>Comentario:</label>
-      <textarea
+      <input
         value={text}
         onChange={(e) => setText(e.target.value)}
         maxLength="280"
         autoFocus
         required
       />
-      <button type="submit" disabled={loading}>
+      <button className="registerLog" type="submit" disabled={loading}>
         Publicar
       </button>
     </form>

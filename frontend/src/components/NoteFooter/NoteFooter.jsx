@@ -1,7 +1,7 @@
 // Importamos los prop-types.
 import PropTypes from 'prop-types';
 import { userPropTypes } from '../../utils/customPropTypes';
-import LikeVote from '../LikeVoteButton';
+import binpng from '../../../public/bin.png'
 // Importamos los hooks.
 import { useState } from 'react';
 
@@ -14,11 +14,11 @@ import {
 // Importamos los estilos.
 import './NoteFooter.css';
 
-const NotesFooter = ({
+const NoteFooter = ({
     authUser,
     noteId,
     owner,
-    likes,
+    votes,
     likedByMe,
     likeNotesById,
     deleteNotesById,
@@ -66,33 +66,34 @@ const NotesFooter = ({
 
     return (
         <footer className="tweet-footer">
-            <div>
-                <LikeVote
+            <div className='footerDiv'>
+
+                {owner && (
+                    <button className="deleteNoteButton" onClick={() => handleDeleteNotes()}><img src={binpng}/></button>
+                )}
+                <div
                     className={`heart ${likedByMe && 'like'}`}
                     onClick={() => {
                         // Si estamos logeados y loading no está establecido a true permitimos
                         // al usuario crear o eliminar el like.
                         authUser && !loading && handleLikeNotes();
                     }}
-                ></LikeVote>
-                <p>{likes}</p>
-            </div>
-            {owner && (
-                <button onClick={() => handleDeleteNotes()}>Eliminar</button>
-            )}
+                    ></div>
+                <p className='numberVotes'>{votes}</p>
+                </div>
         </footer>
     );
 };
 
-NotesFooter.propTypes = {
+NoteFooter.propTypes = {
     authUser: userPropTypes,
     noteId: PropTypes.number.isRequired,
-    owner: PropTypes.bool,
-    likes: PropTypes.number.isRequired,
+    owner: PropTypes.bool.isRequired,
+    votes: PropTypes.number.isRequired,
     likedByMe: PropTypes.bool,
     likeNotesById: PropTypes.func.isRequired,
     deleteNotesById: PropTypes.func.isRequired,
 };
 
-export default NotesFooter;
+export default NoteFooter;
 

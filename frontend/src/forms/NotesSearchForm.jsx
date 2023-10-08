@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 // Importamos los hooks.
 import { useState } from 'react';
 
-// Importamos los estilos.
+// Importamos las imágenes.
+import lupapng from '../../public/img/favicom/lupa.png'
 // import './TweetSearchForm.css';
 
 const NotesSearchForm = ({ setSearchParams, loading }) => {
@@ -24,7 +25,7 @@ const NotesSearchForm = ({ setSearchParams, loading }) => {
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
             />
-            <button disabled={loading}>Buscar</button>
+            <button className='navBarSearchButton' disabled={loading}><img src={lupapng} /></button>
         </form>
     );
 };

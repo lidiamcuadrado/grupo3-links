@@ -16,7 +16,6 @@ const updateProfileController = async (req, res, next) => {
       error.status = 404;
       throw error;
     }
-    console.log('Hola');
 
     // Actualizar los datos del usuario
     const updatedUserData = {

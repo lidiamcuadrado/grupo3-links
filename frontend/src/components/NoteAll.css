@@ -1,0 +1,16 @@
+NoteBody text{  
+  word-wrap: break-word;
+  
+}
+.note {
+  padding: 8px;
+  display: flex;
+  border-radius: 10px;
+  margin: 20px;
+  min-width: 330px;
+  max-width: 330px;
+  height: 130px;
+  background-color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+  color: black;
+}

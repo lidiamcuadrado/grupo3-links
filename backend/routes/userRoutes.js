@@ -34,4 +34,6 @@ router.put('/users/:userId/profile', authUserController, updateProfileController
 router.get('/users/:userId', authUserController, getPublicUserController)
 
 
+
+
 module.exports = router

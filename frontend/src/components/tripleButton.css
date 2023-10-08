@@ -1,0 +1,29 @@
+.tripleButtongroup {
+  margin-bottom: 20px;
+}
+
+.triplebutton {
+  cursor: pointer;
+  width: 180px;
+  height: 40px;
+  background-color: rgba(231, 231, 231, 0.658);
+  transition: ease-in-out 0.3s;
+}
+.triplebutton:hover{
+  background-color: rgb(176, 177, 179);
+}
+.M{
+  border-radius: 1px 1px 1px 1px;
+  border: none;
+  border-left: 1px solid rgb(255, 255, 255);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+.L{
+  border-radius: 50px 0% 0% 50px;
+  border: none;
+}
+
+.R{
+  border-radius: 0px 50px 50px 0px;
+  border: none;
+}

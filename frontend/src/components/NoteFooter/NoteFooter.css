@@ -1,21 +1,63 @@
 .tweet-footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 1rem;
+  min-width: 100%;
+  margin-top: 7px;
 }
 
+.tweet-footer p{
+  font-size: 70%;
+}
+.deleteNoteButton{
+  /* margin-top: -40px; */
+  border: none;
+}
+.deleteNoteButton img{
+  cursor: pointer;
+  border: none;
+  width: auto;
+  height: 20px;
+  transition: ease-in-out 0.3s;
+}
+.deleteNoteButton img:hover{
+  transform: scale(1.3)
+}
+
+.numberVotes {
+  margin-top: -15px;
+}
 .tweet-footer>div {
-  display: flex;
   align-items: center;
 }
-
+.footerDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+}
 .tweet-footer>div>div.heart {
   cursor: pointer;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   background-image: url('/heart_animation.png');
   background-position: left;
   background-repeat: no-repeat;
   background-size: 2900%;
+}
+
+.tweet-footer>div>div.heart:hover {
+  background-position: right;
+}
+
+.tweet-footer>div>div.heart.like {
+  animation: heart-burst 0.8s steps(28) 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heart-burst {
+  from {
+    background-position: left;
+  }
+
+  to {
+    background-position: right;
+  }
 }

@@ -1,0 +1,37 @@
+.homeContainer {
+  background-color: #912E2E;
+  height: 100vh;
+}
+
+.homeContainer h1{
+  cursor: context-menu;
+  font-size: 1000%;
+  padding-top: 7%;
+}
+.buttondiv{
+  margin-top: 5%;
+  display: flex;
+  justify-content:center;
+  gap: 5%;
+}
+.loginregisterbutton{
+  color: #F3A87E;
+  height: 50px;
+  width: 180px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 3px 3px 0px 0px #f3a97ec7;
+  background-color: #ffffff;
+}
+
+.loginregisterbutton:hover {
+  box-shadow: 0 0 #333;
+  color: #fff;
+  background-color: #F3A87E;
+}

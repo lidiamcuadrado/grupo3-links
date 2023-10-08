@@ -6,11 +6,20 @@ import './NoteBody.css';
 
 
 const NoteBody = ({ title, text, url }) => {
+    const handleButtonClick = () => {
+        const currentLocation = window.location.href;
+        const baseUrl = currentLocation.split("/")[2]; // Obtener el dominio sin "http://" o "https://"
+        const newUrl = `http://${url}`;
+        const confirmResult = window.confirm("¿Estás seguro de que deseas abrir este enlace?");
+        if (confirmResult) {
+            window.open(newUrl, "_blank");
+        }
+    };
     return (
         <div className="tweet-body">
             <h4>{title}</h4>
-            <p>{text}</p>
-            <button onClick={url}>URL link</button>
+            <p className='cardText'>{text}</p>
+            <button className='urlButton' onClick={handleButtonClick}>URL link</button>
             
         </div>
     );

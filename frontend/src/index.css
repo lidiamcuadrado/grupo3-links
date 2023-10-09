@@ -103,7 +103,7 @@ i,
 b,
 u,
 em {
-    font-size: 1em;
+    /* font-size: 1em; */
     font-weight: inherit;
     font-style: inherit;
     text-decoration: none;
@@ -135,14 +135,12 @@ form,
 input,
 textarea,
 select,
-button,
 label {
     font-family: inherit;
     font-size: inherit;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
-    background-color: transparent;
     color: inherit;
     display: block;
     /* opcional */
@@ -179,7 +177,7 @@ body {
     font-family: var(--tipo-principal);
     color: var(--negro);
     /* opcional */
-    line-height: 1.4em;
+
     /* opcional */
     -webkit-hyphens: auto;
     -ms-hyphens: auto;

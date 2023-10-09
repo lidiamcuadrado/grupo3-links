@@ -8,12 +8,13 @@
 
 
 .Cabecera {
+    top: 0;
+    position: fixed; 
     width: 100%;
     background-color: #912E2E;
     display: flex;
     padding: 1em;
-    display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     color: white;
 }
@@ -22,9 +23,8 @@
 
 .Cabecera-h1 {
     position: absolute;
-    left: 1.8em;
-    top: 0.5em;
-    font-size: 300%;
+    left: 10%;
+    font-size: 400%;
     font-weight: lighter;
     font-family: 'Road Rage', cursive;
     color: #F3A87E;
@@ -32,7 +32,7 @@
 
 /* Estilo para el buscador */
 
-.Contenedor-buscador {
+/* .Contenedor-buscador {
     display: flex;
     align-items: center;
     background-color: white;
@@ -42,21 +42,50 @@
     padding: 0px 100px 0px 10px;
     box-shadow: 0px 0px 8px #ddd;
     margin-right: 15px;
-}
+} */
 
 .Buscar-icono {
     margin-right: 10px;
 }
 
-.Contenedor-buscador input {
+/* .Contenedor-buscador input {
     flex: 1;
     border: none;
     outline: none;
+} */
+.navBarSearchButton{
+    display: flex;
+    border: none;
+    cursor: pointer;
+    height: 0;
+    align-items: center;
+    justify-content: center;
 }
 
+.navBarSearchButton img{
+    border: none;
+    margin: 10px 10px 20px 10px;
+    cursor: pointer;
+    height: 25px;
+    filter: invert(100%);
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.search-form input {
+    width: 250px;
+    max-height: 40px;
+    color: black;
+}
 /* Estilo para el botón de publicar */
 
 .Contenedor-publicar {
+    position: fixed;
+    left: 75%;
+    top: 3.1%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +118,7 @@
 
 .Imagen-Perfil-1 {
     position: fixed;
-    top: 0.5em;
+    top: 1.5em;
     right: 1em;
     width: 50px;
     height: 50px;
@@ -102,7 +131,7 @@
 
 .Cabecera-boton {
     position: fixed;
-    top: 20px;
+    /* top: 20px; */
     left: 1em;
     cursor: pointer;
 }
@@ -110,7 +139,8 @@
 .Menu-icono {
     width: 2em;
     height: 2em;
-    fill: white;
+    background-color: #912E2E;
+    color: #FFE4B0;
 }
 
 /* Estilo para el menú hamburguesa -> YA desplegado */
@@ -119,7 +149,7 @@
     position: fixed;
     top: 0;
     left: -30%;
-    width: 30%;
+    width: 25%;
     height: 100vh;
     background-color: #912E2E;
     display: flex;
@@ -128,6 +158,7 @@
     align-items: center;
     opacity: 0;
     transition: left 0.5s ease, opacity 0.5s ease;
+    z-index: 1;
 }
 
 .Nav-h2 {

@@ -54,10 +54,10 @@ export const newVoteService = async (notesId, method) => {
 };
 
 // lista de enlaces
-export const getNotesService = async () => {
+export const getNotesService = async (searchParams) => {
   const token = getToken();
 
-  const res = await fetch(`${baseURL}/notes`, {
+  const res = await fetch(`${baseURL}/notes?${searchParams}`, {
     headers: { 
       Authorization: token 
     } 
@@ -65,5 +65,17 @@ export const getNotesService = async () => {
 
   const body = await res.json();
 
+  return body;
+};
+
+// lista de enlaces populares
+export const getTrendingNotesService = async () => {
+  const token = getToken();
+  const res = await fetch(`${baseURL}/notes/trending`, {
+    headers: {
+      Authorization: token
+    }
+  });
+  const body = await res.json();
   return body;
 };

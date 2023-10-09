@@ -1,33 +1,41 @@
 // Importamos los hooks.
-import { useAuth } from '../hooks/useAuth';
-import { useNotes } from '../hooks/useNotes';
-
+import { useAuth } from "../hooks/useAuth";
+import { useNotes } from "../hooks/useNotes";
+import "./Home.css";
 // Importamos los componentes.
-import NoteAll from '../components/NoteAll';
+import NoteAll from "../components/NoteAll";
+import TripleButton from "../components/tripleButton";
+import { useEffect } from "react";
 
 const NotesSearchPage = () => {
-    const { authUser } = useAuth();
-    const { notes, likeNotesById, deleteNotesById } =
-        useNotes();
+  const { authUser } = useAuth();
+  const { notes, likeNotesById, deleteNotesById, setIsTrending } = useNotes();
 
-    return (
-        <main>
-            <div className="tweet-list">
-                {authUser && notes?.length > 0 && (
-                    notes.map((note) => {
-                        return (
-                            <NoteAll
-                                key={note.id}
-                                authUser={authUser}
-                                note={note}
-                                likeNotesById={likeNotesById}
-                                deleteNotesById={deleteNotesById}
-                            />
-                        );
-                    })
-                )}
-            </div>
-        </main>
-    );
-                }
+  useEffect(() => {
+    // Establecemos a true el valor isTrending para obtener el listado de notas trending.
+    setIsTrending(false);
+  }, [setIsTrending]);
+  return (
+    <main className="main-list">
+      <div>
+        <TripleButton />
+      </div>
+      <div className="tweet-list">
+        {authUser &&
+          notes?.length > 0 &&
+          notes.map((note) => {
+            return (
+              <NoteAll
+                key={note.id}
+                authUser={authUser}
+                note={note}
+                likeNotesById={likeNotesById}
+                deleteNotesById={deleteNotesById}
+              />
+            );
+          })}
+      </div>
+    </main>
+  );
+};
 export default NotesSearchPage;

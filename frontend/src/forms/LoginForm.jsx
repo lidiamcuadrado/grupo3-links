@@ -1,6 +1,8 @@
 // Importamos los prop-types.
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import { useNavigate } from "react-router-dom";
 // Importamos los hooks.
 import { useState } from 'react';
@@ -18,8 +20,10 @@ const LoginForm = ({ authLogin, loading }) => {
     return (
         <>
           <div className="auth-form-container">
-            <h1>WeShare!</h1>
-            <h2>Login</h2>
+          <Link to="/">
+            <button className='loginh1'>WeShare!</button>
+          </Link>
+            <h2 className='loginh2'>Login</h2>
               <form className="login-form" onSubmit={(e) => {
                     e.preventDefault();
                     authLogin(email, password);

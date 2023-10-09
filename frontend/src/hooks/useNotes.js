@@ -1,84 +1,108 @@
 // Importamos los hooks.
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 // Importamos los servicios.
-import { getNotesService } from '../services/notesService';
-import { useAuth } from './useAuth';
+import {
+  getNotesService,
+  getTrendingNotesService,
+} from "../services/notesService";
 
 export const useNotes = () => {
-    const { authUser } = useAuth()
-    const [notes, setNotes] = useState();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [loading, setLoading] = useState(false);
+  const { authUser } = useAuth();
 
-    useEffect(() => {
-        // Realizamos una petición para obtener los tweets.
-        const fetchNotes = async () => {
-            try {
-                setLoading(true);
+  const [notes, setNotes] = useState();
+  const [isTrending, setIsTrending] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
 
-                const body = await getNotesService(searchParams);
+  useEffect(() => {
+    // Realizamos una petición para obtener los tweets.
+    const fetchNotes = async () => {
+        console.log('Notas normales')
+      try {
+        setLoading(true);
 
-                setNotes(body.data.notes);
-            } catch (err) {
-                alert(err.message);
-            } finally {
-                setLoading(false);
-            }
+        const body = await getNotesService(searchParams);
+       
+        setNotes(body.data.notes);
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchTrendingNotes = async () => {
+        console.log('Notas trending')
+      try {
+        setLoading(true);
+
+        const body = await getTrendingNotesService(searchParams);
+
+        setNotes(body.data.notes);
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Si el usuario está logeado y 
+    if (authUser && isTrending) {
+      fetchTrendingNotes();
+    } else if (authUser) {
+      fetchNotes();
+    }
+  }, [isTrending, searchParams, authUser]);
+  // Función que permite agregar o eliminar un like en el State.
+  const likeNotesById = (noteId) => {
+    // Obtenemos un nuevo array donde modificamos exclusivamente el tweet en cuestión.
+    const newNotes = notes.map((currentNotes) => {
+      // Si el id del tweet actual coincide con el tweet del id sobre el que queremos agregar
+      // o eliminar el like lo modificamos.
+      if (currentNotes.id === noteId) {
+        // Invertimos el valor de likedByMe.
+        const likedByMe = !currentNotes.likedByMe;
+
+        // Incrementamos o decrementamos los votes en 1 en función del valor de likedByMe.
+        const votes = likedByMe
+          ? currentNotes.votes + 1
+          : currentNotes.votes - 1;
+
+        return {
+          ...currentNotes,
+          likedByMe,
+          votes,
         };
+      }
 
-        // Llamamos a la función anterior únicamente si el usuario está logueado.
-        if (authUser) fetchNotes();
-    }, [searchParams]);
+      // Retornamos el tweet.
+      return currentNotes;
+    });
 
-    // Función que permite agregar o eliminar un like en el State.
-    const likeNotesById = (noteId) => {
-        // Obtenemos un nuevo array donde modificamos exclusivamente el tweet en cuestión.
-        const newNotes = notes.map((currentNotes) => {
-            // Si el id del tweet actual coincide con el tweet del id sobre el que queremos agregar
-            // o eliminar el like lo modificamos.
-            if (currentNotes.id === noteId) {
-                // Invertimos el valor de likedByMe.
-                const votedByMe = !currentNotes.votedByMe;
+    // Actualizamos los tweets con el nuevo array.
+    setNotes(newNotes);
+  };
 
-                // Incrementamos o decrementamos los likes en 1 en función del valor de likedByMe.
-                const likes = votedByMe
-                    ? currentNotes.vote + 1
-                    : currentNotes.vote - 1;
+  // Función que permite eliminar un tweet en el State.
+  const deleteNotesById = (noteId) => {
+    // Creamos un nuevo array en el que eliminamos únicamente el tweet en cuestión.
+    const newNotes = notes.filter((currentNotes) => currentNotes.id !== noteId);
 
-                return {
-                    ...currentNotes,
-                    likedByMe: votedByMe,
-                    likes,
-                };
-            }
+    // Actualizamos los tweets.
+    setNotes(newNotes);
+  };
 
-            // Retornamos el tweet.
-            return currentNotes;
-        });
-
-        // Actualizamos los tweets con el nuevo array.
-        setNotes(newNotes);
-    };
-
-    // Función que permite eliminar un tweet en el State.
-    const deleteNotesById = (noteId) => {
-        // Creamos un nuevo array en el que eliminamos únicamente el tweet en cuestión.
-        const newNotes = notes.filter(
-            (currentNotes) => currentNotes.id !== noteId
-        );
-
-        // Actualizamos los tweets.
-        setNotes(newNotes);
-    };
-
-    return {
-        notes,
-        searchParams,
-        setSearchParams,
-        likeNotesById,
-        deleteNotesById,
-        loading,
-    };
+  return {
+    notes,
+    isTrending,
+    setIsTrending,
+    searchParams,
+    setSearchParams,
+    likeNotesById,
+    deleteNotesById,
+    loading,
+  };
 };

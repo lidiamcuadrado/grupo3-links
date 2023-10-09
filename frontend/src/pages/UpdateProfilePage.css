@@ -1,0 +1,13 @@
+
+.profileBig {
+  display: flex;
+
+}
+@media screen and (max-width: 600px) {
+  .profileBig {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+

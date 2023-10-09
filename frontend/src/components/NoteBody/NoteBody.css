@@ -1,12 +1,25 @@
 .tweet-body {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+}
+.urlButton {
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #C88484;
+  height: 25px;
+  min-width: 150px;
+  font-style: italic;
+}
+.urlButton:hover {
+  cursor: pointer;
+  background-color: #912E2E;
+}
+.cardText {
+  font-size: 70%;
+  
 }
 
-.tweet-body>p {
-  margin: 1rem;
-}
-
-.tweet-body>img {
-  width: 100%;
-}

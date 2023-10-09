@@ -8,6 +8,7 @@
 }
 
 .App {
+  /* margin-top: 120px; */
   text-align: center;
   /* display: flex; */
   min-height: 100vh;
@@ -45,6 +46,41 @@ main {
   flex-direction: column;
 }
 
+#share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Road rage';
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+.formNotes {
+  display: flex;
+  justify-content: center;
+}
+
+.createNoteContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.note-create-form{
+  height: 500px;
+  width: 280px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  display: flex;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+  justify-content: space-evenly;
+}
+
 @media screen and (min-width: 600px) {
 
   .auth-form-container {
@@ -78,7 +114,7 @@ input::placeholder {
   color: rgb(194, 194, 194);
 }
 
-button.loginbutton {
+.loginbutton {
   margin-top: 10px;
   border: none;
   background-color: #F3A87E;
@@ -90,16 +126,40 @@ button.loginbutton {
   font-weight: bold;
 }
 
+.log {
+  margin-top: 10px;
+  border: none;
+  background-color: #F3A87E;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
 button.log {
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 button.log:hover {
   background-color: #f6d4c2e3;
-
 }
 
 .link-btn {
   background: none;
   color: white;
+}
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
 }

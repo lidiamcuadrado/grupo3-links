@@ -37,7 +37,6 @@ main {
   display: flex;
   align-content: center;
   justify-content: center;
-  flex-direction: column;
 }
 .auth-form-container,
 .login-form,
@@ -55,9 +54,16 @@ main {
   margin-top: 20px;
   margin-bottom: -20px;
 }
+
 .formNotes {
   display: flex;
   justify-content: center;
+}
+
+.createNoteContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
 }
 
 .note-create-form{

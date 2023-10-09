@@ -61,7 +61,29 @@ export const updateProfileService = async (
   });
 
   const body = await res.json();
-  console.log(body);
+
+  return body;
+};
+// otra más para el cambio de avatar
+export const updateAvatarService = async (
+  userId,
+  avatar
+  ) => {
+    const token = getToken();
+    
+  const res = await fetch(`${baseURL}/users/${userId}/avatar`, {
+    method: "PUT", // Usamos el método PUT para actualizar el avatar.
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({
+      avatar
+    }),
+  });
+
+  const body = await res.json();
+
   return body;
 };
 

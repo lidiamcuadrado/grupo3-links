@@ -22,8 +22,7 @@ const UpdateProfileForm = ({ authUpdateProfile, loading, userId }) => {
 
     setTimeout(() => {
       setShowSuccessMessage(false);
-    }, 3000);
-    window.location.reload();
+    }, 2000);
   };
 
   return (
@@ -57,7 +56,7 @@ const UpdateProfileForm = ({ authUpdateProfile, loading, userId }) => {
             name="password"
           />
           <button className="log" disabled={loading || isUpdating}>
-            {isUpdating ? "Updating..." : "Update Profile"}
+            Update Profile
           </button>
         </form>
       </div>

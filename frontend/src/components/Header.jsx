@@ -79,25 +79,27 @@ const Header = ({ setSearchParams, loading, avatar }) => {
                     <Link to="/notes" >
                     <li className="Nav-li">
                         <AiFillHome className='Nav-iconos' />
-                        <a href="#" className="Nav-a">Principal</a>
+                        <a href="" className="Nav-a">Principal</a>
                     </li>
                     </Link>
 
+                    <Link to='/notes/trending' >
                     <li className="Nav-li">
                         <AiOutlineStar className='Nav-iconos' />
-                        <a href="#" className="Nav-a">Populares</a>
+                        <a href="" className="Nav-a">Populares</a>
                     </li>
+                    </Link>
                     
                     <Link to="/about">
                     <li className="Nav-li">
                         <BsLink45Deg className='Nav-iconos' />
-                        <a href="#" className="Nav-a">Sobre WeShare!</a>
+                        <a href="" className="Nav-a">Sobre WeShare!</a>
                     </li>
                     </Link>
 
                     <li className="Nav-li">
                         <BiSolidHelpCircle className='Nav-iconos' />
-                        <a href="#" className="Nav-a">Ayuda</a>
+                        <a href="" className="Nav-a">Ayuda</a>
                     </li>
 
                     <li className="Nav-li">

@@ -17,7 +17,6 @@ import NoteCreatePage from "./pages/NoteCreatePage/NoteCreatePage";
 // Importamos los prop-types.
 
 
-
 const App = () => {
   const { authUser } = useAuth(); 
     const { setSearchParams, loading } =

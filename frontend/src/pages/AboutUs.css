@@ -2,19 +2,27 @@
   display: flex;
   flex-direction: column;
 }
+
 .aboutUp{
+  margin-top: 90px;
   background-color: #912E2E;
-  height: 50%;
-  padding-bottom: 40px;
+  height: 60vh;
   display: flex;
   flex-direction: column;
 }
+
+.aboutUp h2 {
+  margin-top: 40px;
+}
+
 .aboutDown{
   padding-top: 40px;
   height: 50vh;
   color: #912E2E;
 }
+
 .aboutFotos{
+  margin-top: 10px;
   height: 200px;
   width: 200px;
   border: 5px solid #F3A87E;
@@ -27,26 +35,23 @@
   flex-direction: column;
 }
 
-.gitlinkIcons {
-  filter: invert(91%) sepia(37%) saturate(2829%) hue-rotate(299deg) brightness(91%) contrast(110%);
-  height: 45px;
-  width: 45px;
-  flex-direction: row;
-}
-
-.gitlinkIcons:hover{
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(326deg) brightness(103%) contrast(106%);
-}
-
-.linksContainers{
+.linksContainers {
   height: 35px;
   display: flex;
-  justify-content: space-evenly;
-  z-index: 0;
+  justify-content: center;
+  overflow: hidden;
+  gap: 20px;
 }
+
+.linksContainers svg {
+  height: 30px;
+  width: 30px;
+}
+
 .aboutContainer h3{
   justify-content: space-evenly;
 }
+
 .aboutIcons{
   display: flex;
   justify-content: space-evenly;

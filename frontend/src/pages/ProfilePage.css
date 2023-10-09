@@ -12,6 +12,7 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
   justify-content: space-evenly;
 }
+
 .auth-form-container{
   height: 400px;
   width: 280px;
@@ -26,6 +27,7 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
   justify-content: space-evenly;
 }
+
 .profileEditButton{
   margin-top: 20px;
   border-radius: 5px;

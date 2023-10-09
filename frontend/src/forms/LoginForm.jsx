@@ -47,10 +47,3 @@ LoginForm.propTypes = {
 
 export default LoginForm;
 
-
-LoginForm.propTypes = {
-    authLogin: PropTypes.func.isRequired,
-    loading: PropTypes.bool.isRequired,
-};
-
-export default LoginForm;

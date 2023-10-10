@@ -68,6 +68,33 @@
   justify-content: space-evenly; 
 }
 
+/* Estilos para el grupo de elementos del formulario */
+.login-form {
+  position: relative;
+}
+
+/* Estilos para el contenedor del campo de contraseña con el botón */
+.password-input-container-login {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para el campo de entrada de contraseña */
+.password-input-container-login input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Estilos para el botón de alternar contraseña (mostrar/ocultar) */
+.password-toggle-button-login {
+  position: absolute;
+  right: 25px;
+  top: 60%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 1300px) {
   .auth-form-container-login {

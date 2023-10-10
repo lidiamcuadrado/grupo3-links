@@ -24,7 +24,7 @@ const RegisterForm = ({ authRegister, loading }) => {
         <Link to="/">
           <button className="loginh1">WeShare!</button>
         </Link>
-        <h2 className="loginh2">Register</h2>
+        <h2 className="loginh2">Registro</h2>
         <form
           className="register-form"
           onSubmit={(e) => {
@@ -34,26 +34,26 @@ const RegisterForm = ({ authRegister, loading }) => {
             console.log(token);
           }}
         >
-          <label htmlFor="name">Username</label>
+          <label htmlFor="name">Usuario</label>
           <input
             className="registerForm"
             value={username}
             name="name"
             onChange={(e) => setUsername(e.target.value)}
             id="name"
-            placeholder="User name"
+            placeholder="Nombre de usuario"
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Correo electrónico</label>
           <input
             className="registerForm"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            placeholder="youremail@gmail.com"
+            placeholder="tucorreo@gmail.com"
             id="email"
             name="email"
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             className="registerForm"
             value={password}
@@ -64,11 +64,11 @@ const RegisterForm = ({ authRegister, loading }) => {
             name="password"
           />
           <button className="registerLog" disabled={loading}>
-            Register
+            Registrarse
           </button>
         </form>
         <button className="link-btn" onClick={routeChange}>
-          Already have an account? Login here.
+          ¿Ya tienes una cuenta? Inicia sesión aquí.
         </button>
       </div>
     </>

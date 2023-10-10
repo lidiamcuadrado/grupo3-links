@@ -20,11 +20,12 @@ const NotesSearchPage = () => {
       <div>
         <TripleButton />
       </div>
-      <div className="tweet-list">
+      <div className="notes-list">
         {authUser &&
           notes?.length > 0 &&
           notes.map((note) => {
             return (
+              <div key={note.id}>
               <NoteAll
                 key={note.id}
                 authUser={authUser}
@@ -32,6 +33,7 @@ const NotesSearchPage = () => {
                 likeNotesById={likeNotesById}
                 deleteNotesById={deleteNotesById}
               />
+              </div>
             );
           })}
       </div>

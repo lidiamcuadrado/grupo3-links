@@ -9,7 +9,7 @@
 
 .Cabecera {
     top: 0;
-    position: fixed; 
+    position: sticky; 
     width: 100%;
     background-color: #912E2E;
     display: flex;
@@ -17,6 +17,7 @@
     justify-content:center;
     align-items: center;
     color: white;
+    z-index: 100;
 }
 
 /* Estilo para el logo WeShare (H1) */

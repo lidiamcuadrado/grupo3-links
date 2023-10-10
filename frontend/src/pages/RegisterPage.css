@@ -1,31 +1,42 @@
+/* Estilo para el fondo principal del registro y el login */
 .registerMain {
   height: 100vh;
   background-color: #912E2E;
 }
-.link-btn{
-  margin-top: 10%;
+
+/* Estilo para los botones de enlace */
+.link-btn {
+  margin-top: 20%;
   cursor: pointer;
   font-size: 98%;
 }
-.link-btn:hover{
+
+/* Estilo para los botones de enlace al pasar el mouse por encima */
+.link-btn:hover {
   color: #F3A87E;
   text-decoration: underline;
 }
-.loginh1{
+
+/* Estilo para el encabezado "Login" */
+.loginh1 {
   color: #F3A87E;
   font-family: 'Road Rage', cursive;
   background: none;
   font-size: 440%;
   cursor: pointer;
-  margin-top: 60px;
+  margin-top: 30%;
 }
-.loginh2{
+
+/* Estilo para el encabezado "Login" */
+.loginh2 {
   font-size: 140%;
 }
+
+/* Estilo para el botón de registro */
 .registerLog {
   margin-top: 10px;
   border: none;
-  background-color: #F3A87E;
+  background-color: #e97f42;
   text-decoration: none;
   padding: 20px;
   border-radius: 10px;
@@ -33,17 +44,18 @@
   color: white;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 10px;
 }
 
+/* Estilo para el botón de registro al pasar el mouse por encima */
 .registerLog:hover {
-  background-color: #f6d4c2e3;
+  background-color: #e33714e3;
 }
 
+/* Estilo para el contenedor del formulario de registro/login */
 .auth-form-container2 {
-  height: 500px;
-  width: 280px;
-  margin: 50px;
+  height: 550px;
+  width: 380px;
+  margin: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +63,48 @@
   display: flex;
   border-radius: 10px;
   background-color: whitesmoke;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.432);
   justify-content: space-evenly;
 }
+
+
+/* Media query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
+@media screen and (max-width: 1300px) {
+  .auth-form-container2 {
+    width: 25%; 
+    margin: 20px; 
+    height: 85%;
+  }
+
+  .loginh1 {
+    font-size: 300%;
+    margin-top: 60px; 
+  }
+
+  .registerLog {
+    margin-top: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+
+/* Media query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
+@media screen and (max-width: 768px) {
+ 
+  .auth-form-container2 {
+    width: 50%; 
+    margin: 40px;
+    height: 70%;
+  } 
+
+  .loginh1 {
+    font-size: 300%; 
+}
+  
+.registerLog {
+      margin-top: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+  } 

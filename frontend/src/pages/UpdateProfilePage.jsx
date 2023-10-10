@@ -20,26 +20,31 @@ const UpdateProfilePage = () => {
 
   return (
     <main>
-      <div className="profileBig">
-        <div className="profileMedium">
-          {showUpdateForm ? (
-            <>
-              <button className='profileEditButton' onClick={handleButtonClick}>
-                <CgClose />
-              </button>
-              <UpdateProfileForm authUpdateProfile={authUpdateProfile} userId={authUser?.id} loading={loading} />
-            </>
-          ) : (
-            <>
+    <div className="profileBig">
+      <div className="profileMedium">
+        {showUpdateForm ? (
+          <>
+          <div className='profileEditButtonContainer'> 
+            <button className='profileEditButton' onClick={handleButtonClick}>
+              <CgClose />
+            </button>
+          </div>
+            <UpdateProfileForm authUpdateProfile={authUpdateProfile} userId={authUser?.id} loading={loading} />
+          </>
+        ) : (
+          <>
+            <div className='profileEditButtonContainer'> 
               <button className='profileEditButton' onClick={handleButtonClick}>
                 <FaUserEdit />
               </button>
-              <ProfilePage />
-            </>
-          )}
-        </div>
+            </div>
+            <ProfilePage />
+          </>
+        )}
       </div>
-    </main>
+    </div>
+  </main>
+  
   );
 };
 

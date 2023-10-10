@@ -1,23 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Road+Rage&family=Roboto:wght@100&family=Share+Tech&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Estilos generales aplicados a todo el documento */
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
 
+/* Estilos para el contenedor principal de la aplicación */
 .App {
-  /* margin-top: 120px; */
-  text-align: center;
-  /* display: flex; */
   min-height: 100vh;
-  /* align-items: center;
-  justify-content: center; */
   font-family: 'Roboto', sans-serif;
   color: #F3A87E;
 }
 
+/* Estilos para títulos principales */
 h1 {
   font-size: 600%;
   font-weight: lighter;
@@ -33,11 +31,14 @@ h2 {
   margin-bottom: 25px;
 }
 
+/* Estilos para contenedores principales */
 main {
   display: flex;
   align-content: center;
   justify-content: center;
 }
+
+/* Estilos para formularios de autenticación y registro */
 .auth-form-container,
 .login-form,
 .register-form {
@@ -46,56 +47,44 @@ main {
   flex-direction: column;
 }
 
-#share {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: 'Road rage';
-  margin-top: 20px;
-  margin-bottom: -20px;
-}
-
-.formNotes {
-  display: flex;
-  justify-content: center;
-}
-
-.createNoteContainer{
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-}
-
-.note-create-form{
-  height: 500px;
-  width: 280px;
-  margin: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px;
-  display: flex;
+/* Estilos para el botón de inicio de sesión */
+.loginbutton {
+  margin-top: 10px;
+  border: none;
+  background-color: #F3A87E;
+  text-decoration: none;
+  padding: 20px;
   border-radius: 10px;
-  background-color: whitesmoke;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
-  justify-content: space-evenly;
+  cursor: pointer;
+  color: #912E2E;
+  font-weight: bold;
 }
 
-@media screen and (min-width: 600px) {
-
-  .auth-form-container {
-
-    padding: 5rem;
-    border-radius: 10px;
-  }
+/* Estilos para botones de inicio de sesión con clase .log */
+.log {
+  margin-top: 10px;
+  border: none;
+  background-color: #F3A87E;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
-  .App {
-    background-color: #912E2E;
-  }
+/* Estilos para el botón de inicio de sesión con clase .log al pasar el mouse por encima */
+button.log:hover {
+  background-color: #ea4319e3;
 }
 
+/* Estilos para el botón de enlace */
+.link-btn {
+  background: none;
+  color: white;
+}
+
+/* Estilos para los campos de entrada de texto */
 label {
   text-align: left;
   padding: 0.25rem 0;
@@ -114,43 +103,7 @@ input::placeholder {
   color: rgb(194, 194, 194);
 }
 
-.loginbutton {
-  margin-top: 10px;
-  border: none;
-  background-color: #F3A87E;
-  text-decoration: none;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #912E2E;
-  font-weight: bold;
-}
-
-.log {
-  margin-top: 10px;
-  border: none;
-  background-color: #F3A87E;
-  text-decoration: none;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-
-button.log {
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-button.log:hover {
-  background-color: #f6d4c2e3;
-}
-
-.link-btn {
-  background: none;
-  color: white;
-}
+/* Estilos para el botón de registro exitoso */
 .success-popup {
   position: fixed;
   top: 50%;

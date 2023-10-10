@@ -1,11 +1,13 @@
 // Importamos los prop-types.
 import PropTypes from 'prop-types';
 
+// Impotamos los hooks.
 import { Link } from 'react-router-dom';
-
 import { useNavigate } from "react-router-dom";
-// Importamos los hooks.
 import { useState } from 'react';
+
+// Importamos los estilos
+import '../pages/LoginPage.css';
 
 const LoginForm = ({ authLogin, loading }) => {
 
@@ -19,22 +21,22 @@ const LoginForm = ({ authLogin, loading }) => {
 
     return (
         <>
-          <div className="auth-form-container">
+          <div className="auth-form-container-login">
           <Link to="/">
-            <button className='loginh1'>WeShare!</button>
+            <button className='botón-login'>WeShare!</button>
           </Link>
-            <h2 className='loginh2'>Login</h2>
+            <h2 className='h2-login'>Iniciar sesión</h2>
               <form className="login-form" onSubmit={(e) => {
                     e.preventDefault();
                     authLogin(email, password);
                 }}>
-                <label htmlFor="email">email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
-                <label htmlFor="password">password</label>
+                <label htmlFor="login-form">Correo electrónico</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="tuemail@gmail.com" id="email" name="email" />
+                <label htmlFor="login-form">Contraseña</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                <button className="log" disabled={loading}>LogIn</button>
+                <button className="login-log" disabled={loading}>Iniciar Sesión</button>
               </form>
-            <button className="link-btn" onClick={routeChange}>Dont have an account? Register here.</button>
+            <button className="link-btn" onClick={routeChange}>¿No tienes cuenta? Registrate aquí.</button>
           </div>
         </>
     );

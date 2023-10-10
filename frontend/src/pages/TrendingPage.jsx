@@ -22,7 +22,7 @@ const TrendingPage = () => {
       <div>
         <TripleButton isTrending={isTrending} />
       </div>
-      <div className="tweet-list">
+      <div className="notes-list">
         {authUser &&
           notes?.length > 0 &&
           notes.map((note) => {

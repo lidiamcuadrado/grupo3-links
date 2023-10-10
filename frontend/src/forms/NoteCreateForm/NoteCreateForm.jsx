@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 //Importamos los hooks.
 import { useState } from "react";
-
 import { newNotesService } from "../../services/notesService";
+
+//Importamos los estilos.
+import "./NoteCreateForm.css";
 
 const NoteCreateForm = () => {
   const navigate = useNavigate();

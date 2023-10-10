@@ -7,6 +7,9 @@ import { Navigate } from 'react-router-dom';
 //Importamos el formulario.
 import NoteCreateForm from '../../forms/NoteCreateForm/NoteCreateForm';
 
+//Importamos los estilos.
+import "../../forms/NoteCreateForm/NoteCreateForm.css";
+
 
 const NoteCreatePage = () => {
   const { authUser } = useAuth();

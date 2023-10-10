@@ -35,6 +35,8 @@
 /* Estilo para el botón de registro */
 .registerLog {
   margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center; 
   border: none;
   background-color: #e97f42;
   text-decoration: none;
@@ -67,18 +69,44 @@
   justify-content: space-evenly;
 }
 
+/* Estilos para el grupo de elementos del formulario */
+.register-form {
+  position: relative;
+}
+
+/* Estilos para el contenedor del campo de contraseña con el botón */
+.password-input-container-register {
+  display: flex;
+}
+
+/* Estilos para el campo de entrada de contraseña */
+.password-input-container-register input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Estilos para el botón de alternar contraseña (mostrar/ocultar) */
+.password-toggle-button-register {
+  position: absolute;
+  right: 25px;
+  top: 69%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 /* Media query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
 @media screen and (max-width: 1300px) {
   .auth-form-container2 {
-    width: 25%; 
-    margin: 20px; 
+    width: 25%;
+    margin: 20px;
     height: 85%;
   }
 
   .loginh1 {
     font-size: 300%;
-    margin-top: 60px; 
+    margin-top: 60px;
   }
 
   .registerLog {
@@ -88,23 +116,21 @@
   }
 }
 
-
 /* Media query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
 @media screen and (max-width: 768px) {
-
   .auth-form-container2 {
-    width: 50%; 
+    width: 50%;
     margin: 40px;
     height: 70%;
-  } 
+  }
 
   .loginh1 {
-    font-size: 300%; 
+    font-size: 300%;
+  }
+
+  .registerLog {
+    margin-top: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
 }
-  
-.registerLog {
-      margin-top: 10px;
-      padding: 15px;
-      margin-bottom: 10px;
-    }
-  } 

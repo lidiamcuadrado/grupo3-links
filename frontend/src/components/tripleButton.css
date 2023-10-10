@@ -1,6 +1,10 @@
 .tripleButtongroup {
   margin-bottom: 20px;
-  margin-top: 100px;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .triplebutton {

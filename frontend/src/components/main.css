@@ -6,14 +6,17 @@
 .homeContainer h1{
   cursor: context-menu;
   font-size: 1000%;
-  padding-top: 7%;
+  padding-top: 10%;
+  text-align: center;
 }
+
 .buttondiv{
-  margin-top: 5%;
+  margin-top: 15px;
   display: flex;
   justify-content:center;
-  gap: 5%;
+  gap: 30px;
 }
+
 .loginregisterbutton{
   color: #F3A87E;
   height: 50px;
@@ -26,7 +29,7 @@
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
-  box-shadow: 3px 3px 0px 0px #f3a97ec7;
+  box-shadow: 1px 1px 0px 0px #f3a97ec7;
   background-color: #ffffff;
 }
 

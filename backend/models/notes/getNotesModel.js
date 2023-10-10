@@ -19,6 +19,7 @@ const getNotesModel = async (keyword = '', userId = 0) => {
                     u.username,
                     t.userId = ? AS owner,
                     COUNT(l.id) AS votes,
+                    BIT_OR(l.userId = ?) AS likedByMe,
                     t.createdAt
                 FROM notes t
                 INNER JOIN users u ON u.id = t.userId

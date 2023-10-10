@@ -1,18 +1,26 @@
-.main-list{
-  margin-top: 30px;
+/* Estilos para la lista principal */
+.main-list {
+  margin-top: 30px; 
   margin-left: 150px;
-  margin-right: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  margin-right: 150px; 
+  display: flex; 
+  flex-wrap: wrap; 
+  flex-direction: column; 
   justify-content: flex-start;
 }
 
-.tweet-list {
-  display: flex;
+/* Estilos para la lista de notas */
+
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
   max-width: 1400px;
-  flex-wrap: wrap;
-  justify-content: center;
   max-width: 1400px;
 }
 
+.notes-list>div {
+  grid-column: span 1;
+  grid-row: span 1;
+}

@@ -9,7 +9,7 @@ export default function AboutUs() {
   return (
     <div className="aboutContainer">
       <div className="aboutUp">
-        <h2>About us</h2>
+        <h2>Sobre Nosotros</h2>
 
         <div className="aboutIcons">
 
@@ -82,7 +82,7 @@ export default function AboutUs() {
 
 
       <div className="aboutDown">
-        <h3>sobre WeShare</h3>
+        <h3>Sobre WeShare!</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
           suscipit amet f

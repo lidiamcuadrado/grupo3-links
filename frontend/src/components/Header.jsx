@@ -1,6 +1,7 @@
 
 // // Importamos los hooks.
 import { useAuth } from '../hooks/useAuth';
+
 // Importamos los compontentes.
 import { NavLink } from 'react-router-dom';
 const baseURL = import.meta.env.VITE_API_URL;
@@ -13,7 +14,6 @@ import { Link } from 'react-router-dom';
 import '../components/Header.css';
 
 // Importamos iconos
-// import { FaSearch } from "react-icons/fa"
 import { AiFillHome } from "react-icons/ai"
 import { AiOutlineStar } from "react-icons/ai"
 import { BsLink45Deg } from "react-icons/bs"
@@ -22,6 +22,7 @@ import { BiLogOutCircle } from "react-icons/bi"
 import { AiFillCloseCircle } from "react-icons/ai"
 import { AiOutlineMenu } from "react-icons/ai"
 import { BsShareFill } from "react-icons/bs"
+
 // importamos herramienta para manejar el estado
 import { useState } from 'react';
 import defaultAvatar from '../../public/usuario.png'
@@ -112,7 +113,6 @@ const Header = ({ setSearchParams, loading, avatar }) => {
             </nav>
 
             <div className='buscador'>
-                {/* <FaSearch className='Buscar-icono' /> */}
                 <NotesSearchForm setSearchParams={setSearchParams}
                 loading={loading}
                 />

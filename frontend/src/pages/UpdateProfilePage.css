@@ -1,12 +1,13 @@
-
+/* Estilos para la clase .profileBig */
 .profileBig {
-  display: flex;
-
+  display: flex; 
 }
+
+/* Estilos para la clase .profileBig en pantallas con un ancho máximo de 600px */
 @media screen and (max-width: 600px) {
   .profileBig {
-    display: flex;
-    flex-direction: column;
+    display: flex; 
+    flex-direction: column; 
   }
 }
 

@@ -23,6 +23,7 @@ const NotesSearchForm = ({ setSearchParams, loading }) => {
             <input
                 type="search"
                 value={keyword}
+                placeholder='Buscar...'
                 onChange={(e) => setKeyword(e.target.value)}
             />
             <button className='navBarSearchButton' disabled={loading}><img src={lupapng} /></button>

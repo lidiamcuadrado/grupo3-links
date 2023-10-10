@@ -95,7 +95,7 @@ export default function AboutUs() {
       </div>
 
       <div className="containerAboutDown">
-        <h3 className="welcome">¡Bienvenido a WeShare!</h3>
+        <h3 className="welcome">Sobre WeShare!</h3>
         <div className="aboutDown">
           <div className="cardAbout">
             <h4>Nuestra Misión</h4>

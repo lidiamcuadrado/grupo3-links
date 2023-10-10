@@ -31,29 +31,10 @@
     color: #F3A87E;
 }
 
-/* Estilo para el buscador */
-
-/* .Contenedor-buscador {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    color: #000000;
-    border-radius: 10px;
-    height: 2.5rem;
-    padding: 0px 100px 0px 10px;
-    box-shadow: 0px 0px 8px #ddd;
-    margin-right: 15px;
-} */
-
 .Buscar-icono {
     margin-right: 10px;
 }
 
-/* .Contenedor-buscador input {
-    flex: 1;
-    border: none;
-    outline: none;
-} */
 .navBarSearchButton{
     display: flex;
     border: none;
@@ -70,23 +51,26 @@
     height: 25px;
     filter: invert(100%);
 }
+
 .search-form {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    margin-top: 5px;
+    margin-left: 40px;
 }
 
 .search-form input {
-    width: 250px;
+    width: 350px;
     max-height: 40px;
     color: black;
 }
+
 /* Estilo para el botón de publicar */
 
 .Contenedor-publicar {
     position: fixed;
     left: 75%;
-    top: 3.1%;
+    top: 1.8em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,14 +116,13 @@
 
 .Cabecera-boton {
     position: fixed;
-    /* top: 20px; */
-    left: 1em;
+    left: 1.5em;
     cursor: pointer;
 }
 
 .Menu-icono {
-    width: 2em;
-    height: 2em;
+    width: 2.5em;
+    height: 2.5em;
     background-color: #912E2E;
     color: #FFE4B0;
 }
@@ -172,6 +155,7 @@
 .Cabecera-nav.isActive {
     left: 0;
     opacity: 1;
+    z-index: 100;
 }
 
 .CerrarBoton {
@@ -199,14 +183,14 @@
     padding: 5px 15px;
     border-radius: 10px;
     position: absolute;
-    top: 5.5em;
+    top: 6.5em;
     right: 4em;
     margin: 1em;
 }
 
 .Nav-ul {
     position: absolute;
-    top: 11em;
+    top: 12em;
     left: 2em;
     flex-direction: column;
 }
@@ -236,7 +220,7 @@
 .Contenedor-Imagen-2 {
     position: absolute;
     left: 2.5em;
-    top: 5em;
+    top: 6em;
     width: 100%;
     height: auto;
 }
@@ -249,4 +233,13 @@
     border: 2px solid white;
 }
 
-/* Falta un overlay para cuando se abre el menú desplegable */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    z-index: 2; 
+    cursor: pointer; 
+  }

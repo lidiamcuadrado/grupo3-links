@@ -26,19 +26,26 @@ import { BsShareFill } from "react-icons/bs"
 import { useState } from 'react';
 import defaultAvatar from '../../public/usuario.png'
 
+// ... (importaciones y código anterior)
+
+// ... (importaciones y código anterior)
+
 const Header = ({ setSearchParams, loading, avatar }) => {
     const avatarImage = avatar ? `${baseURL}/${avatar}` : defaultAvatar;
     
     const { authUser, authLogout } = useAuth();
-    const [menu, setMenu] = useState(false)
+    const [menu, setMenu] = useState(false);
 
     const toggleMenu = () => {
-        setMenu(!menu)
-    }
+        setMenu(!menu);
+    };
     
+    const closeMenu = () => {
+        setMenu(false);
+    };
+
     return (
         <header className="Cabecera">
-
             <button
                 onClick={toggleMenu}
                 className={`Cabecera-boton ${menu ? 'isActive' : ''}`}>
@@ -50,67 +57,54 @@ const Header = ({ setSearchParams, loading, avatar }) => {
             </h1>
 
             <nav className={`Cabecera-nav ${menu ? 'isActive' : ''}`}>
-
-                <h2 className='Nav-h2'>
-                    WeShare!
-                </h2>
-
+                <h2 className='Nav-h2'>WeShare!</h2>
                 <div className="Contenedor-Imagen-2">
                     <img
                         src={avatarImage}
-                        // Aquí arriba en realidad se debe poner la url de la imagen del usuario logueado entre llaves {*}
                         alt="Foto de perfil"
                         className="Imagen-Perfil-2"
                     />
                 </div>
-
                 <div className="Contenedor-usuario">
                     {authUser && <span>@{authUser.username}</span>}
                 </div>
-
-
                 <button
-                    onClick={toggleMenu} className="CerrarBoton">
+                    onClick={toggleMenu}
+                    className="CerrarBoton">
                     <AiFillCloseCircle className='Cerrar-icono' />
                 </button>
-
                 <ul className="Nav-ul"> 
-
-                    <Link to="/notes" >
-                    <li className="Nav-li">
-                        <AiFillHome className='Nav-iconos' />
-                        <a href="" className="Nav-a">Principal</a>
-                    </li>
+                    <Link to="/notes">
+                        <li className="Nav-li" onClick={closeMenu}>
+                            <AiFillHome className='Nav-iconos' />
+                            <a href="" className="Nav-a">Principal</a>
+                        </li>
                     </Link>
-
-                    <Link to='/notes/trending' >
-                    <li className="Nav-li">
-                        <AiOutlineStar className='Nav-iconos' />
-                        <a href="" className="Nav-a">Populares</a>
-                    </li>
+                    <Link to='/notes/trending'>
+                        <li className="Nav-li" onClick={closeMenu}>
+                            <AiOutlineStar className='Nav-iconos' />
+                            <a href="" className="Nav-a">Populares</a>
+                        </li>
                     </Link>
-                    
                     <Link to="/about">
-                    <li className="Nav-li">
-                        <BsLink45Deg className='Nav-iconos' />
-                        <a href="" className="Nav-a">Sobre WeShare!</a>
-                    </li>
+                        <li className="Nav-li" onClick={closeMenu}>
+                            <BsLink45Deg className='Nav-iconos' />
+                            <a href="" className="Nav-a">Sobre WeShare!</a>
+                        </li>
                     </Link>
-
-
-                    <li className="Nav-li">
+                    <li className="Nav-li" onClick={() => { authLogout(); closeMenu(); }}>
                         <BiLogOutCircle className='Nav-iconos' />
-                        <a onClick={() => authLogout()} href="#" className="Nav-a">Cerrar sesión</a>
+                        <a href="#" className="Nav-a">Cerrar sesión</a>
                     </li>
-
                 </ul>
-
             </nav>
 
+            {menu && (
+                <div className="overlay" onClick={closeMenu}></div>
+            )}
+
             <div className='buscador'>
-                <NotesSearchForm setSearchParams={setSearchParams}
-                loading={loading}
-                />
+                <NotesSearchForm setSearchParams={setSearchParams} loading={loading} />
             </div>
 
             <div className='Contenedor-publicar'>
@@ -122,19 +116,17 @@ const Header = ({ setSearchParams, loading, avatar }) => {
 
             <div className="Contenedor-Imagen-1">
                 <Link to="/users/profile">
-                <img
-                    src={avatarImage}
-                    alt="Foto de perfil"
-                    className="Imagen-Perfil-1"
-                />
+                    <img
+                        src={avatarImage}
+                        alt="Foto de perfil"
+                        className="Imagen-Perfil-1"
+                    />
                 </Link>
             </div>
-
-
-
         </header >
-    )
-}
+    );
+};
+
 Header.propTypes = {
     authUser: userPropTypes,
     setSearchParams: PropTypes.func.isRequired,
@@ -142,6 +134,7 @@ Header.propTypes = {
     avatar: PropTypes.string,
 };
 
+export default Header;
 
 
-export default Header
+

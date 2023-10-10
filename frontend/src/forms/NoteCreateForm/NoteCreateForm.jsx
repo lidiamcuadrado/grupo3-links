@@ -1,40 +1,36 @@
-//Hook Import
-//Importamos los prop-types.
 import { useNavigate } from "react-router-dom";
-
-//Importamos los hooks.
 import { useState } from "react";
 import { newNotesService } from "../../services/notesService";
-
-//Importamos los estilos.
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./NoteCreateForm.css";
 
 const NoteCreateForm = () => {
   const navigate = useNavigate();
 
-  // Llamada a lo que hay en la base de datos(?)
   const [title, setTitle] = useState("");
   const [url, setURL] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  //Función que crea una note/post.
   const handleCreateNote = async () => {
     try {
       setLoading(true);
 
-      
-      //Creamos un objeto formData y establecemos sus propiedades
       const formData = new FormData();
       formData.append("text", text);
       formData.append("url", url);
       formData.append("title", title);
 
-      //Creamos la nota en la base de datos
       await newNotesService(formData);
 
-      // Redirigimos a la página principal.
-      navigate("/notes");
+      // Mostrar el toast de éxito
+      toast.success('Nota publicada correctamente', {
+        position: 'top-right',
+        autoClose: 4000, 
+      });
+
+      navigate("/notes"); 
     } catch (err) {
       alert(err.message);
     } finally {
@@ -56,6 +52,7 @@ const NoteCreateForm = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         id="title"
+        maxLength="25"
         placeholder="Título"
         required
       />
@@ -64,7 +61,7 @@ const NoteCreateForm = () => {
         type="text"
         value={url}
         onChange={(e) => setURL(e.target.value)}
-        placeholder="www.example.com"
+        placeholder="www.ejemplo.com"
         id="url"
         required
       />
@@ -73,6 +70,7 @@ const NoteCreateForm = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         maxLength="280"
+        placeholder="Escribe un breve comentario..."
         autoFocus
         required
       />

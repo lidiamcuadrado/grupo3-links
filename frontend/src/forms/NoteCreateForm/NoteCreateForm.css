@@ -1,13 +1,13 @@
 .createNoteContainer{
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 25px;
 }
-  
+
 .note-create-form{
-  height: 500px;
+  height: 450px;
   width: 480px;
-  margin: 20px;
+  margin: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,7 @@
 }
 
 #share {
+  font-size: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,12 +38,11 @@
   .note-create-form label {
     font-size: 18px;
     color: #912E2E;
-    margin-bottom: 8px;
   }
   
   .note-create-form input {
     width: 80%;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     border: 0.5px solid #912E2E;
     border-radius: 5px;

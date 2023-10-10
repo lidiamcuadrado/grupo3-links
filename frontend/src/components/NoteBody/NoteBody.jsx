@@ -16,7 +16,7 @@ const NoteBody = ({ title, text, url }) => {
         }
     };
     return (
-        <div className="tweet-body">
+        <div className="note-body">
             <h4>{title}</h4>
             <p className='cardText'>{text}</p>
             <button className='urlButton' onClick={handleButtonClick}>URL link</button>

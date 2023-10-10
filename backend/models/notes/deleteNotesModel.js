@@ -4,7 +4,7 @@ const getDb = require('../../db/getDb');
 // Importamos las funciones de error.
 const { unauthorizedUserError } = require('../../services/errorService');
 
-// Función que se conectará a la base de datos y eliminará un tweet.
+// Función que se conectará a la base de datos y eliminará un note.
 const deleteNotesModel = async (notesId, userId) => {
     let connection;
 
@@ -16,18 +16,18 @@ const deleteNotesModel = async (notesId, userId) => {
             [notesId]
         );
 
-        // Si no somos los dueños del tweet lanzamos un error.
+        // Si no somos los dueños del note lanzamos un error.
         if (notes[0].userId !== userId) {
             unauthorizedUserError();
         }
 
-        // Eliminamos los likes del tweet antes de borrar al tweet, de lo contrario SQL
-        // no nos dejará eliminar el tweet.
+        // Eliminamos los likes del note antes de borrar al note, de lo contrario SQL
+        // no nos dejará eliminar el note.
         await connection.query(`DELETE FROM upVotes WHERE notesId = ?`, [
             notesId,
         ]);
 
-        // Eliminamos el tweet.
+        // Eliminamos el note.
         await connection.query(`DELETE FROM notes WHERE id = ?`, [notesId]);
     } finally {
         if (connection) connection.release();

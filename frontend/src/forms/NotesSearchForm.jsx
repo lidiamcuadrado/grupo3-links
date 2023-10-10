@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 // Importamos las imágenes.
 import lupapng from '../../public/img/favicom/lupa.png'
-// import './TweetSearchForm.css';
+
 
 const NotesSearchForm = ({ setSearchParams, loading }) => {
     const [keyword, setKeyword] = useState('');

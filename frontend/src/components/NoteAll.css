@@ -1,7 +1,7 @@
 NoteBody text{  
   word-wrap: break-word;
-  
 }
+
 .note {
   padding: 8px;
   display: flex;

@@ -17,7 +17,6 @@ import '../components/Header.css';
 import { AiFillHome } from "react-icons/ai"
 import { AiOutlineStar } from "react-icons/ai"
 import { BsLink45Deg } from "react-icons/bs"
-import { BiSolidHelpCircle } from "react-icons/bi"
 import { BiLogOutCircle } from "react-icons/bi"
 import { AiFillCloseCircle } from "react-icons/ai"
 import { AiOutlineMenu } from "react-icons/ai"
@@ -98,10 +97,6 @@ const Header = ({ setSearchParams, loading, avatar }) => {
                     </li>
                     </Link>
 
-                    <li className="Nav-li">
-                        <BiSolidHelpCircle className='Nav-iconos' />
-                        <a href="" className="Nav-a">Ayuda</a>
-                    </li>
 
                     <li className="Nav-li">
                         <BiLogOutCircle className='Nav-iconos' />

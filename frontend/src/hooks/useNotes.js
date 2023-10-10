@@ -18,7 +18,7 @@ export const useNotes = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Realizamos una petición para obtener los tweets.
+    // Realizamos una petición para obtener los note.
     const fetchNotes = async () => {
         console.log('Notas normales')
       try {
@@ -58,9 +58,9 @@ export const useNotes = () => {
   }, [isTrending, searchParams, authUser]);
   // Función que permite agregar o eliminar un like en el State.
   const likeNotesById = (noteId) => {
-    // Obtenemos un nuevo array donde modificamos exclusivamente el tweet en cuestión.
+    // Obtenemos un nuevo array donde modificamos exclusivamente el note en cuestión.
     const newNotes = notes.map((currentNotes) => {
-      // Si el id del tweet actual coincide con el tweet del id sobre el que queremos agregar
+      // Si el id del note actual coincide con el note del id sobre el que queremos agregar
       // o eliminar el like lo modificamos.
       if (currentNotes.id === noteId) {
         // Invertimos el valor de likedByMe.
@@ -78,20 +78,20 @@ export const useNotes = () => {
         };
       }
 
-      // Retornamos el tweet.
+      // Retornamos el note.
       return currentNotes;
     });
 
-    // Actualizamos los tweets con el nuevo array.
+    // Actualizamos los note con el nuevo array.
     setNotes(newNotes);
   };
 
-  // Función que permite eliminar un tweet en el State.
+  // Función que permite eliminar un note en el State.
   const deleteNotesById = (noteId) => {
-    // Creamos un nuevo array en el que eliminamos únicamente el tweet en cuestión.
+    // Creamos un nuevo array en el que eliminamos únicamente el note en cuestión.
     const newNotes = notes.filter((currentNotes) => currentNotes.id !== noteId);
 
-    // Actualizamos los tweets.
+    // Actualizamos los note.
     setNotes(newNotes);
   };
 

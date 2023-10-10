@@ -5,7 +5,7 @@ const getDb = require('../db/getDb');
 const { notFoundError } = require('../services/errorService');
 
 // Función controladora intermedia que se conectará a la base de datos y comprobará
-// si existe un tweet con el id que obtenemos por path params.
+// si existe un note con el id que obtenemos por path params.
 const notesExistController = async (req, res, next) => {
     let connection;
 

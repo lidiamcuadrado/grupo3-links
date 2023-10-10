@@ -91,7 +91,7 @@
 
 /* Media query para pantallas más pequeñas (por ejemplo, dispositivos móviles) */
 @media screen and (max-width: 768px) {
- 
+
   .auth-form-container2 {
     width: 50%; 
     margin: 40px;

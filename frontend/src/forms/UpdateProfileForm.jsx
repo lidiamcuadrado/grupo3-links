@@ -36,14 +36,10 @@ const UpdateProfileForm = ({
     e.preventDefault();
 
     // Validar que los campos no estén vacíos
-    if (
-      !username ||
-      !email ||
-      !password ||
-      !confirmPassword ||
-      !currentPasswordInput
-    ) {
-      toast.error("Faltan campos", { position: "top-center" });
+    if (!username || !email) {
+      toast.error("Usuario y e-mail son obligatorios", {
+        position: "top-center",
+      });
       return;
     }
 

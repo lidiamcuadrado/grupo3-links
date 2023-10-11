@@ -7,10 +7,10 @@ function TripleButton() {
   return (
     <ButtonGroup className="tripleButtongroup" aria-label="Basic example">
       <Link to="/notes">
-      <Button onClick={''} className="triplebutton L" variant="secondary">Latest</Button>
+      <Button onClick={''} className="triplebutton L" variant="secondary">Últimas notas</Button>
       </Link>
       <Link to="/notes/trending">
-      <Button onClick={''} className="triplebutton R" variant="secondary">Trending</Button>
+      <Button onClick={''} className="triplebutton R" variant="secondary">Tendencias</Button>
       </Link>
     </ButtonGroup>
   );

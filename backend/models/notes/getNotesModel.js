@@ -1,6 +1,6 @@
 const getDb = require("../../db/getDb");
 
-// Función que se conectará a la base de datos y devolverá todos los tweets.
+// Función que se conectará a la base de datos y devolverá todos los note.
 const getNotesModel = async (keyword = '', userId = 0) => {
     let connection;
 

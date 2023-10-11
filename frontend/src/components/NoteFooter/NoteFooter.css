@@ -1,10 +1,10 @@
-.tweet-footer {
+.note-footer {
   display: flex;
   min-width: 100%;
   margin-top: 7px;
 }
 
-.tweet-footer p{
+.note-footer p{
   font-size: 70%;
 }
 .deleteNoteButton{
@@ -25,7 +25,7 @@
 .numberVotes {
   margin-top: -15px;
 }
-.tweet-footer>div {
+.note-footer>div {
   align-items: center;
 }
 .footerDiv{
@@ -33,7 +33,7 @@
   flex-direction: column;
   justify-content:flex-end;
 }
-.tweet-footer>div>div.heart {
+.note-footer>div>div.heart {
   cursor: pointer;
   height: 50px;
   width: 50px;
@@ -43,11 +43,11 @@
   background-size: 2900%;
 }
 
-.tweet-footer>div>div.heart:hover {
+.note-footer>div>div.heart:hover {
   background-position: right;
 }
 
-.tweet-footer>div>div.heart.like {
+.note-footer>div>div.heart.like {
   animation: heart-burst 0.8s steps(28) 1;
   animation-fill-mode: forwards;
 }

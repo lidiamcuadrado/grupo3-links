@@ -36,7 +36,7 @@ const NoteFooter = ({
             // Modificamos el like en la base de datos.
             await newVoteService(noteId, method);
 
-            // Modificamos el array de tweets en el State.
+            // Modificamos el array de note en el State.
             likeNotesById(noteId);
         } catch (err) {
             alert(err.message);
@@ -45,16 +45,16 @@ const NoteFooter = ({
         }
     };
 
-    // Función que elimina el tweet.
+    // Función que elimina el note.
     const handleDeleteNotes = async () => {
         if (confirm('¿Deseas eliminar el note?')) {
             try {
                 setLoading(true);
 
-                // Eliminamos el tweet en la base de datos.
+                // Eliminamos el note en la base de datos.
                 await deleteNotesService(noteId);
 
-                // Modificamos el array de tweets en el State.
+                // Modificamos el array de note en el State.
                 deleteNotesById(noteId);
             } catch (err) {
                 alert(err.message);
@@ -65,7 +65,7 @@ const NoteFooter = ({
     };
 
     return (
-        <footer className="tweet-footer">
+        <footer className="note-footer">
             <div className='footerDiv'>
 
                 {owner && (

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 // Importamos las imágenes.
 import lupapng from '../../public/img/favicom/lupa.png'
-// import './TweetSearchForm.css';
+
 
 const NotesSearchForm = ({ setSearchParams, loading }) => {
     const [keyword, setKeyword] = useState('');
@@ -23,6 +23,7 @@ const NotesSearchForm = ({ setSearchParams, loading }) => {
             <input
                 type="search"
                 value={keyword}
+                placeholder='Buscar...'
                 onChange={(e) => setKeyword(e.target.value)}
             />
             <button className='navBarSearchButton' disabled={loading}><img src={lupapng} /></button>

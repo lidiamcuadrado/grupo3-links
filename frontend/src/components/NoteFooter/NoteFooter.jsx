@@ -2,6 +2,8 @@
 import PropTypes from 'prop-types';
 import { userPropTypes } from '../../utils/customPropTypes';
 import binpng from '../../../public/img/iconos/bin.png'
+
+
 // Importamos los hooks.
 import { useState } from 'react';
 

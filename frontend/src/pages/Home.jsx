@@ -15,6 +15,7 @@ const NotesSearchPage = () => {
     // Establecemos a true el valor isTrending para obtener el listado de notas trending.
     setIsTrending(false);
   }, [setIsTrending]);
+  
   return (
     <main className="main-list">
       <div>

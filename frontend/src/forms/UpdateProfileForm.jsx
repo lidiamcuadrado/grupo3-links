@@ -1,19 +1,24 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
-import '../pages/UpdateProfilePage.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import "../pages/UpdateProfilePage.css";
 
-const UpdateProfileForm = ({ authUpdateProfile, loading, userId, currentPassword }) => {
+const UpdateProfileForm = ({
+  authUpdateProfile,
+  userId,
+  setShowUpdateForm,
+  loading,
+}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [currentPasswordInput, setCurrentPasswordInput] = useState(""); 
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false); 
-  const [showPassword, setShowPassword] = useState(false); 
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
+  const [currentPasswordInput, setCurrentPasswordInput] = useState("");
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const toggleShowCurrentPassword = () => {
     setShowCurrentPassword(!showCurrentPassword);
@@ -31,30 +36,43 @@ const UpdateProfileForm = ({ authUpdateProfile, loading, userId, currentPassword
     e.preventDefault();
 
     // Validar que los campos no estén vacíos
-    if (!username || !email || !password || !confirmPassword || !currentPasswordInput) {
+    if (
+      !username ||
+      !email ||
+      !password ||
+      !confirmPassword ||
+      !currentPasswordInput
+    ) {
       toast.error("Faltan campos", { position: "top-center" });
       return;
     }
 
     if (password !== confirmPassword) {
-      toast.error("Las nuevas contraseñas no coinciden", { position: "top-center" });
+      toast.error("Las nuevas contraseñas no coinciden", {
+        position: "top-center",
+      });
       return;
     }
 
-    if (password === currentPassword || password === currentPasswordInput) {
-      toast.error("La nueva contraseña debe ser diferente de la actual", { position: "top-center" });
+    /*if (password === currentPassword || password === currentPasswordInput) {
+      toast.error("La nueva contraseña debe ser diferente de la actual", {
+        position: "top-center",
+      });
       return;
-    }
+    }*/
 
     // Lógica de actualización del perfil aquí...
     authUpdateProfile(userId, username, email, password);
 
     toast.success("Perfil actualizado con éxito", { position: "top-center" });
 
+    // Cierra el formulario de actualización.
+    setShowUpdateForm(false);
+
     // Limpia los campos de contraseña después de la actualización
     setPassword("");
     setConfirmPassword("");
-    setCurrentPasswordInput(""); 
+    setCurrentPasswordInput("");
   };
 
   return (

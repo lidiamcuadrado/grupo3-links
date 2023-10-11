@@ -1,9 +1,8 @@
-import { useAuth } from '../hooks/useAuth';
-import defaultAvatar from '../../public/usuario.png'
-import "./ProfilePage.css";
+import defaultAvatar from '../../../public/usuario.png'
+import "./Profile.css";
 
-export default function ProfilePage() {
-  const { authUser } = useAuth();
+export default function ProfilePage({ authUser}) {
+
   const baseURL = import.meta.env.VITE_API_URL;
   const avatarImage = authUser?.avatar ? `${baseURL}/${authUser.avatar}` : defaultAvatar;
 

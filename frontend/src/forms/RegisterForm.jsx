@@ -2,12 +2,20 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { getToken } from "../utils/getToken";
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "../pages/RegisterPage.css";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const RegisterForm = ({ authRegister, loading }) => {
+
+  let navigate = useNavigate();
+  
+  const routeChange = () => {
+    let path = `/users/login`;
+    navigate(path);
+  };
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -86,10 +94,10 @@ const RegisterForm = ({ authRegister, loading }) => {
             Registrarse
           </button>
         </form>
-        <button className="link-btn">
+        <button className="link-btn" onClick={routeChange}>
           ¿Ya tienes una cuenta? Inicia sesión aquí.
         </button>
-      </div>
+      </div> 
       <ToastContainer
         position="top-center"
         autoClose={3000} 

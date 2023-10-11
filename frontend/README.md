@@ -15,3 +15,4 @@ Implementar una API que permita a los usuarios registrarse y compartir enlaces w
 3. Ejecutar `npm run initDb` para crear las tablas necesarias en la BDD creada.
 4. Ejecutar `npm run dev` o `npm run start` para lanzar el servidor.
 5. Una vez el servidor devuelva una respuesta, utilizar la URL dada (en formato protocolo IP) para visualizar el proyecto en cualquier navegador web. (Recomendamos Mozilla Firefox o Google Chrome)
+

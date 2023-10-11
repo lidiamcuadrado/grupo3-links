@@ -1,4 +1,4 @@
-import defaultAvatar from '../../../public/usuario.png'
+import defaultAvatar from '../../../public/img/jpg/usuario.png'
 import "./Profile.css";
 
 export default function ProfilePage({ authUser}) {

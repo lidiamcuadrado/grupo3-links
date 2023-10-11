@@ -13,7 +13,7 @@ export default function AboutUs() {
 
         <div className="aboutIcons">
           <div className="aboutPlayer">
-            <img className="aboutFotos" src="../../public/checa.jpg" alt="" />
+            <img className="aboutFotos" src="../../public/img/jpg/checa.jpg" alt="foto-perfil-pepe" />
             <h3>Pepe Checa</h3>
             <div className="linksContainers">
               <Link
@@ -29,7 +29,7 @@ export default function AboutUs() {
           </div>
 
           <div className="aboutPlayer">
-            <img className="aboutFotos" src="../../public/miguel.jpg" alt="" />
+            <img className="aboutFotos" src="../../public/img/jpg/miguel.jpg" alt="foto-perfil-miguel" />
             <h3>Miguel Vispo</h3>
             <div className="linksContainers">
               <Link
@@ -45,7 +45,7 @@ export default function AboutUs() {
           </div>
 
           <div className="aboutPlayer">
-            <img className="aboutFotos" src="../../public/gero.jpg" alt="" />
+            <img className="aboutFotos" src="../../public/img/jpg/gero.jpg" alt="foto-perfil-gero" />
             <h3>Geronimo Mc Cluskey</h3>
             <div className="linksContainers">
               <Link
@@ -61,7 +61,7 @@ export default function AboutUs() {
           </div>
 
           <div className="aboutPlayer">
-            <img className="aboutFotos" src="../../public/lidia.jpeg" alt="" />
+            <img className="aboutFotos" src="../../public/img/jpg/lidia.jpeg" alt="foto-perfil-lidia" />
             <h3>Lidia mª Cuadrado</h3>
             <div className="linksContainers">
               <Link
@@ -77,7 +77,7 @@ export default function AboutUs() {
           </div>
 
           <div className="aboutPlayer">
-            <img className="aboutFotos" src="../../public/javi.jpeg" alt="" />
+            <img className="aboutFotos" src="../../public/img/jpg/javi.jpeg" alt="foto-perfil-javi" />
             <h3>Javier de la Fuente</h3>
             <div className="linksContainers">
               <Link
@@ -103,7 +103,7 @@ export default function AboutUs() {
               En el vasto universo digital, buscamos simplificar y mejorar la
               experiencia de compartir enlaces web. Creemos en la accesibilidad
               y la conectividad como pilares fundamentales para un intercambio
-              de información eficiente. WeShare se compromete a ser tu
+              de información eficiente. WeShare! se compromete a ser tu
               plataforma de elección, diseñada para impulsar la colaboración y
               el descubrimiento.
             </p>
@@ -111,7 +111,7 @@ export default function AboutUs() {
           <div className="cardAbout">
             <h4>Equipo de Desarrollo </h4>
             <p>
-              El corazón de WeShare late gracias a un equipo diverso de mentes
+              El corazón de WeShare! late gracias a un equipo diverso de mentes
               apasionadas. Provenientes del Bootcamp de Web Developer en HACK A
               BOSS, cada uno aporta su experiencia única. Nuestra fuerza radica
               en la colaboración, la creatividad y el compromiso con la
@@ -122,7 +122,7 @@ export default function AboutUs() {
           <div className="cardAbout">
             <h4>Nuestro Compromiso</h4>
             <p>
-              En WeShare, nos esforzamos por construir más que una plataforma;
+              En WeShare!, nos esforzamos por construir más que una plataforma;
               buscamos forjar una comunidad. Nuestra promesa es la
               transparencia, la escucha activa y la mejora constante. Valoramos
               tus comentarios y sugerencias, y nos comprometemos a evolucionar

@@ -1,7 +1,7 @@
 // Importamos los prop-types.
 import PropTypes from 'prop-types';
 import { userPropTypes } from '../../utils/customPropTypes';
-import defaultAvatar from '../../../public/usuario.png'
+import defaultAvatar from '../../../public/img/jpg/usuario.png'
 // Importamos los estilos.
 import './NoteHeader.css';
 const baseURL = import.meta.env.VITE_API_URL;

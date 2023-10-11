@@ -1,8 +1,6 @@
 # grupo3-links
 
-## ######## ##
-## WeShare! ##
-## ######## ##
+## WeShare!
 
 Proyecto final HACK A BOSS JSB25RT
 
@@ -11,17 +9,18 @@ Proyecto final HACK A BOSS JSB25RT
 Implementar una API que permita a los usuarios registrarse y compartir enlaces web que consideren interesantes. Otros usuarios podrán votarlos si les gustan.
 
 ## INSTALAR
- 
+
 1. Instalar las dependencias mediante el comando `npm install` o `npm i`.
-2. Guardar el archivo `.en.example` como `.env` y cubrir los datos necesarios.
+2. Guardar el archivo `.env.example` como `.env` y cubrir los datos necesarios.
 3. Ejecutar `npm run initDb` para crear las tablas necesarias en la BDD creada.
 4. Ejecutar `npm run dev` o `npm run start` para lanzar el servidor.
 
 ## ENTIDADES
 
 ### USERS
-|    Campo   |   Tipo   |             Descripción
-| - - - - - -|- - - - - | - - - - - - - - - - - - - - - - - - - |
+
+| Campo      | Tipo     | Descripción                           |
+| ---------- | -------- | ------------------------------------- |
 | id         | INT      | Identificador único del usuario.      |
 | email      | VARCHAR  | Dirección de correo electrónico.      |
 | username   | VARCHAR  | Nombre de usuario.                    |
@@ -30,29 +29,34 @@ Implementar una API que permita a los usuarios registrarse y compartir enlaces w
 | role       | VARCHAR  | Rol del usuario (normal o admin).     |
 | createdAt  | DATETIME | Fecha y hora de creación del usuario. |
 | modifiedAt | DATETIME | Fecha y hora de última modificación.  |
------------------------------------------------------------------
+
+---
 
 ### NOTES (PUBLICACIONES)
-|    Campo   |   Tipo   |             Descripción
-| - - - - - -|- - - - - | - - - - - - - - - - - - - - - - - - - |
-| id         | INT      | Identificador único de la publicación.|
-| userId     | VARCHAR  | Identificador de quién la publicó.    |
-| text       | VARCHAR  | Texto de la publicación               |
-| image      | VARCHAR  | Nombre de la imagen adjunta.          |
-| createdAt  | DATETIME | Fecha y hora de creación de la publ.  |
------------------------------------------------------------------
+
+| Campo     | Tipo     | Descripción                            |
+| --------- | -------- | -------------------------------------- |
+| id        | INT      | Identificador único de la publicación. |
+| userId    | VARCHAR  | Identificador de quién la publicó.     |
+| text      | VARCHAR  | Texto de la publicación                |
+| image     | VARCHAR  | Nombre de la imagen adjunta.           |
+| createdAt | DATETIME | Fecha y hora de creación de la publ.   |
+
+---
 
 ### UPVOTES
 
-|    Campo   |   Tipo   |                Descripción
-| - - - - - -|- - - - - | - - - - - - - - - - - - - - - - - - - - - -|
-| id         | INT      | Identificador único del voto.              |
-| userId     | VARCHAR  | Identificador de quién dio el voto.        |
-| notesId    | VARCHAR  | Identificador de la publ. que recibió voto |
-| createdAt  | DATETIME | Fecha y hora de creación de la publ.       |
-----------------------------------------------------------------------
+| Campo     | Tipo     | Descripción                                |
+| --------- | -------- | ------------------------------------------ |
+| id        | INT      | Identificador único del voto.              |
+| userId    | VARCHAR  | Identificador de quién dio el voto.        |
+| notesId   | VARCHAR  | Identificador de la publ. que recibió voto |
+| createdAt | DATETIME | Fecha y hora de creación de la publ.       |
 
-### ENDPOINTS 
+---
+
+### ENDPOINTS
+
 ### USERS
 
 ·POST `/users/register` -> Registro de usuarios.

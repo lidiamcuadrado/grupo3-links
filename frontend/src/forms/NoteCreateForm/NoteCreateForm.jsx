@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { newNotesService } from "../../services/notesService";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "./NoteCreateForm.css";
 
 const NoteCreateForm = () => {
@@ -24,13 +23,7 @@ const NoteCreateForm = () => {
 
       await newNotesService(formData);
 
-      // Mostrar el toast de éxito
-      toast.success('Nota publicada correctamente', {
-        position: 'top-right',
-        autoClose: 4000, 
-      });
-
-      navigate("/notes"); 
+      navigate("/notes");
     } catch (err) {
       alert(err.message);
     } finally {

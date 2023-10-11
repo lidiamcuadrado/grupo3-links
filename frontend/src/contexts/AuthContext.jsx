@@ -38,9 +38,14 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
 
         const body = await getPrivateProfile();
+
+        if (body.status === "error") {
+          throw new Error(body.message);
+        }
+
         setAuthUser(body.data.user);
       } catch (err) {
-        alert(err.message);
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -58,12 +63,16 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
 
-      await signUpService(username, email, password);
+      const body = await signUpService(username, email, password);
+
+      if (body.status === "error") {
+        throw new Error(body.message);
+      }
 
       // Una vez registrados redirigimos a la página de login.
       navigate("/users/login");
     } catch (err) {
-      alert(err.message);
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -76,13 +85,18 @@ export const AuthProvider = ({ children }) => {
 
       const body = await signInService(email, password);
 
+      if (body.status === "error") {
+        throw new Error(body.message);
+      }
+
       // Almacenamos el token en el localStorage. Dado que la variable token es un string no es
       // necesario usar JSON.stringify.
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, body.data.token);
+
       // Indicamos que el usuario está autorizado.
       setIsAuthenticated(true);
     } catch (err) {
-      alert(err.message);
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -104,28 +118,30 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
 
-      await updateProfileService(userId, username, email, password);
+      const body = await updateProfileService(
+        userId,
+        username,
+        email,
+        password
+      );
 
-      // Establecer los nuevos valores en el State de authUser.
-      if (username) {
-        setAuthUser({
-          ...authUser,
-          username,
-        });
+      if (body.status === "error") {
+        throw new Error(body.message);
       }
 
-      if (email)
-        setAuthUser({
-          ...authUser,
-          email,
-        });
-    } catch (error) {
-      console.error("Error updating profile:", error);
+      // Establecer los nuevos valores en el State de authUser.
+      setAuthUser({
+        ...authUser,
+        username,
+        email,
+      });
+    } catch (err) {
+      console.error(err);
     } finally {
       setLoading(false);
     }
   };
-  
+
   // Función que actualiza el avatar del usuario.
   const authUpdateAvatar = async (userId, avatar) => {
     try {
@@ -133,13 +149,17 @@ export const AuthProvider = ({ children }) => {
 
       const body = await updateAvatarService(userId, avatar);
 
+      if (body.status === "error") {
+        throw new Error(body.message);
+      }
+
       // Establecer la URL del avatar en el State de authUser.
       setAuthUser({
         ...authUser,
         avatar: "La URL al nuevo avatar: body.avatar",
       });
-    } catch (error) {
-      console.error("Error updating avatar:", error);
+    } catch (err) {
+      console.error(err);
     } finally {
       setLoading(false);
     }
